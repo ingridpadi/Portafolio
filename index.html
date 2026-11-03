@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portafolio - Ingrid Padilla</title>
   
-  <!-- Carga de Google Fonts: Poppins + Fuentes Cursivas estilo labial -->
+  <!-- Google Fonts: Poppins (Texto base) + Satisfy & Kalam (Cursiva estilo labial/scrapbook) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Dancing+Script:ital,wght@1,700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Satisfy&display=swap" rel="stylesheet">
 
   <style>
     /* ==========================================
-       RESET Y ESTILOS GLOBALES (POPPINS)
+       RESET Y ESTILOS GLOBALES
        ========================================== */
     * {
       margin: 0;
@@ -28,7 +28,7 @@
       width: 100%;
       overflow-x: hidden;
       font-family: 'Poppins', sans-serif;
-      color: #521626;
+      color: #4A1525;
       background-color: #F9D2D9;
     }
 
@@ -50,12 +50,12 @@
       max-height: 100vh;
       width: auto;
       height: auto;
-      object-fit: contain; /* Se visualiza completa sin recortar */
+      object-fit: contain;
       display: block;
     }
 
     /* ==========================================
-       SECCIÓN 2: SOBRE MÍ
+       SECCIÓN 2: SOBRE MÍ (ESTILO SCRAPBOOK)
        ========================================== */
     .about-section {
       width: 100vw;
@@ -65,25 +65,24 @@
       justify-content: center;
       align-items: center;
       position: relative;
-      padding: 2rem 1rem;
+      padding: 3rem 1.5rem;
     }
 
     .about-container {
       width: 100%;
-      max-width: 1300px;
+      max-width: 1350px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 45% 55%;
+      grid-template-columns: 48% 52%;
       align-items: center;
       min-height: 90vh;
-      gap: 2rem;
+      gap: 1.5rem;
     }
 
-    /* --- COLUMNA IZQUIERDA: FOTOGRAFÍA ENTERA --- */
+    /* --- COLUMNA IZQUIERDA: FOTOGRAFÍA AMPLIADA --- */
     .photo-container {
       width: 100%;
       height: 100%;
-      min-height: 500px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -92,87 +91,101 @@
 
     .profile-img {
       max-width: 100%;
-      max-height: 85vh;
+      max-height: 92vh; /* Ampliada para mayor presencia visual */
       width: auto;
       height: auto;
-      object-fit: contain; /* Muestra la imagen completa de pies a cabeza */
+      object-fit: contain; /* Foto entera sin cortes */
       display: block;
-      filter: drop-shadow(0px 10px 20px rgba(0,0,0,0.15));
+      transform: scale(1.05); /* Incremento ligero de tamaño */
+      filter: drop-shadow(4px 12px 20px rgba(0,0,0,0.18));
     }
 
-    /* Respaldo visual si aún no carga ingrid.jpeg */
+    /* Placeholder mientras subes ingrid.jpeg */
     .photo-placeholder {
       display: none;
-      width: 85%;
-      height: 480px;
-      background: rgba(255, 255, 255, 0.25);
+      width: 90%;
+      height: 520px;
+      background: rgba(255, 255, 255, 0.3);
       border: 3px dashed #871D34;
-      border-radius: 24px;
+      border-radius: 20px;
       justify-content: center;
       align-items: center;
       color: #871D34;
       font-weight: 600;
       text-align: center;
       padding: 1.5rem;
-      font-size: 1.1rem;
     }
 
-    /* --- COLUMNA DERECHA: INFORMACIÓN Y TEXTO --- */
+    /* --- COLUMNA DERECHA: INFORMACIÓN SCRAPBOOK --- */
     .info-container {
-      padding: 2rem 3rem 2rem 1rem;
+      padding: 1rem 2rem;
       display: flex;
       flex-direction: column;
-      gap: 1.8rem;
+      gap: 2.2rem;
       align-items: flex-start;
     }
 
-    /* --- TÍTULOS EN CURSIVA BORGOÑA ESTILO LABIAL --- */
+    /* ENCABEZADO CURSIVO ESTILO LABIAL */
     .header-group {
       position: relative;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.2rem;
     }
 
     .greeting-subtitle {
-      font-family: 'Dancing Script', 'Caveat', cursive;
-      font-style: italic;
-      font-size: 3.2rem;
-      color: #871D34; /* Tono Borgoña Labial */
+      font-family: 'Satisfy', cursive;
+      font-size: 3.4rem;
+      color: #871D34; /* Borgoña labial */
       display: block;
       margin-left: 0.5rem;
-      margin-bottom: -0.8rem;
+      margin-bottom: -1rem;
       position: relative;
       z-index: 2;
-      text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.6), 2px 2px 4px rgba(135, 29, 52, 0.25);
+      text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.7);
     }
 
     .main-name {
-      font-family: 'Dancing Script', 'Caveat', cursive;
-      font-style: italic;
-      font-size: 5.2rem;
-      color: #871D34; /* Tono Borgoña Labial */
-      line-height: 1.1;
-      letter-spacing: 1px;
-      /* Efecto de trazo cremoso estilo lápiz/labial */
+      font-family: 'Satisfy', cursive;
+      font-size: 5.5rem;
+      color: #871D34; /* Borgoña labial */
+      line-height: 1.05;
+      letter-spacing: 0.5px;
       text-shadow: 
-        1px 1px 0px #FFFFFF,
-        -1px -1px 0px #FFFFFF,
-        1px -1px 0px #FFFFFF,
-        -1px 1px 0px #FFFFFF,
-        3px 4px 8px rgba(80, 10, 30, 0.3);
+        1.5px 1.5px 0px #FFFFFF,
+        -1.5px -1.5px 0px #FFFFFF,
+        1.5px -1.5px 0px #FFFFFF,
+        -1.5px 1.5px 0px #FFFFFF,
+        4px 5px 10px rgba(80, 10, 30, 0.3);
     }
 
-    /* TARJETA DE BIOGRAFÍA */
+    /* TARJETA DE BIOGRAFÍA TIPO RECUERDO / SCRAPBOOK */
     .bio-card {
+      position: relative;
       background-color: #FDE8ED;
-      border: 2.5px solid #CE5578;
-      border-radius: 28px;
-      padding: 2.2rem 2.5rem;
-      box-shadow: 0px 8px 20px rgba(82, 22, 38, 0.12);
+      border: 2px dashed #CE5578;
+      border-radius: 16px;
+      padding: 2.2rem 2.4rem;
+      box-shadow: 6px 10px 22px rgba(50, 10, 25, 0.15);
+      transform: rotate(-1.2deg); /* Inclinación de papel pegado */
       display: flex;
       flex-direction: column;
       gap: 1.2rem;
       width: 100%;
-      max-width: 680px;
+      max-width: 650px;
+    }
+
+    /* Detalle de Cinta Adhesiva (Washi Tape) superior */
+    .bio-card::before {
+      content: '';
+      position: absolute;
+      top: -14px;
+      left: 35px;
+      width: 110px;
+      height: 28px;
+      background: rgba(255, 255, 255, 0.65);
+      border: 1px solid rgba(206, 85, 120, 0.3);
+      transform: rotate(-3deg);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.06);
+      z-index: 3;
     }
 
     .bio-card p {
@@ -183,13 +196,29 @@
       font-weight: 400;
     }
 
-    /* TARJETA DE ESTUDIOS */
+    /* TARJETA DE ESTUDIOS SCRAPBOOK */
     .studies-wrapper {
       position: relative;
       margin-top: 0.5rem;
       align-self: center;
       width: 100%;
       max-width: 400px;
+      transform: rotate(1.5deg); /* Inclinación opuesta para look dinámico */
+    }
+
+    /* Cinta Adhesiva para Estudios */
+    .studies-wrapper::after {
+      content: '';
+      position: absolute;
+      top: -12px;
+      right: 25px;
+      width: 90px;
+      height: 26px;
+      background: rgba(255, 255, 255, 0.65);
+      border: 1px solid rgba(206, 85, 120, 0.3);
+      transform: rotate(4deg);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.06);
+      z-index: 4;
     }
 
     .studies-badge {
@@ -197,27 +226,24 @@
       top: -18px;
       left: 50%;
       transform: translateX(-50%);
-      background-color: #871D34; /* Borgoña */
+      background-color: #871D34;
       color: #FFFFFF;
-      font-family: 'Dancing Script', cursive;
-      font-style: italic;
-      font-size: 1.6rem;
-      font-weight: 700;
-      letter-spacing: 1px;
+      font-family: 'Kalam', cursive;
+      font-size: 1.4rem;
+      letter-spacing: 1.5px;
       padding: 0.2rem 2.2rem;
       border-radius: 20px;
-      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
-      z-index: 2;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.18);
+      z-index: 3;
     }
 
     .studies-card {
       background-color: #FDE8ED;
-      border: 2.5px solid #CE5578;
-      border-radius: 24px;
-      padding: 2rem 1.5rem 1.4rem 1.5rem;
+      border: 2px dashed #CE5578;
+      border-radius: 16px;
+      padding: 2.2rem 1.5rem 1.4rem 1.5rem;
       text-align: center;
-      box-shadow: 0px 6px 16px rgba(82, 22, 38, 0.1);
-      font-family: 'Poppins', sans-serif;
+      box-shadow: 6px 8px 18px rgba(50, 10, 25, 0.12);
     }
 
     .studies-dates {
@@ -255,28 +281,29 @@
         min-height: auto;
       }
 
-      .photo-container {
-        min-height: 380px;
+      .profile-img {
+        transform: scale(1);
+        max-height: 70vh;
       }
 
       .info-container {
-        padding: 1.5rem 1rem;
+        padding: 1.5rem 0.5rem;
         align-items: center;
       }
 
       .main-name {
-        font-size: 3.8rem;
+        font-size: 4rem;
         text-align: center;
       }
 
       .greeting-subtitle {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
         margin-left: 0;
         text-align: center;
       }
 
-      .bio-card p {
-        font-size: 0.95rem;
+      .bio-card, .studies-wrapper {
+        transform: rotate(0deg);
       }
     }
   </style>
@@ -292,7 +319,7 @@
   <section class="about-section" id="sobre-mi">
     <div class="about-container">
       
-      <!-- Columna Izquierda: Fotografía Completa -->
+      <!-- Columna Izquierda: Fotografía Ampliada -->
       <div class="photo-container">
         <img 
           src="ingrid.jpeg" 
@@ -300,13 +327,13 @@
           class="profile-img"
           onerror="this.style.display='none'; document.getElementById('placeholderFoto').style.display='flex';"
         >
-        <!-- Marcador mientras cargas la foto 'ingrid.jpeg' -->
+        <!-- Respaldo gráfico mientras subes la imagen 'ingrid.jpeg' -->
         <div class="photo-placeholder" id="placeholderFoto">
-          Tu foto (ingrid.jpeg) se mostrará completa aquí
+          Tu foto ampliada (ingrid.jpeg) se mostrará aquí
         </div>
       </div>
 
-      <!-- Columna Derecha: Información en Poppins con Títulos en Labial Borgoña -->
+      <!-- Columna Derecha: Información Estilo Scrapbook -->
       <div class="info-container">
         
         <!-- Saludo -->
@@ -315,7 +342,7 @@
           <h1 class="main-name">Ingrid Padilla</h1>
         </div>
 
-        <!-- Biografía en Poppins -->
+        <!-- Biografía Recorte Scrapbook -->
         <div class="bio-card">
           <p>
             Soy de las personas que encuentran historias en casi cualquier cosa. Me gusta leer, escribir, tomar fotografías, hacer preguntas y guardar pequeños recuerdos de los lugares y momentos que me atraviesan.
@@ -325,9 +352,9 @@
           </p>
         </div>
 
-        <!-- Estudios -->
+        <!-- Estudios Recorte Scrapbook -->
         <div class="studies-wrapper">
-          <div class="studies-badge">Estudios</div>
+          <div class="studies-badge">ESTUDIOS</div>
           <div class="studies-card">
             <p class="studies-dates">2023 — Actualidad</p>
             <p class="studies-degree">Publicidad y Diseño Digital</p>
