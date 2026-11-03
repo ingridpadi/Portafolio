@@ -1,256 +1,319 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ingrid Padilla - Portafolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portafolio - Ingrid Padilla</title>
+  
+  <!-- Tipografía Cursiva Editorial -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
 
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* ==========================================
+       RESET & ESTILOS BASE
+       ========================================== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    <!-- Google Fonts for Editorial Typography -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    body {
+      background-color: #F9D2D9; /* Rosa pastel de la referencia */
+      font-family: 'Playfair Display', serif;
+      overflow-x: hidden;
+      color: #821B32;
+    }
 
-    <style>
-        /* Base Styling & Editorial Background */
-        html, body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #F7C5CC; /* Pure soft pastel pink from reference */
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
+    /* ==========================================
+       SECCIÓN 1: PORTADA EDITORIAL (HERO)
+       ========================================== */
+    .hero-section {
+      position: relative;
+      width: 100vw;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #F9D2D9;
+      padding: 2rem 1rem;
+    }
 
-        /* Kiss Mark Pop Animation */
-        .kiss-mark-active {
-            animation: popKiss 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-        }
+    .hero-container {
+      position: relative;
+      width: 100%;
+      max-width: 1100px;
+      aspect-ratio: 16 / 10;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-        @keyframes popKiss {
-            0% {
-                opacity: 0;
-                transform: scale(0.2) rotate(-15deg);
-            }
-            70% {
-                transform: scale(1.1) rotate(5deg);
-            }
-            100% {
-                opacity: 0.95;
-                transform: scale(1) rotate(0deg);
-            }
-        }
-    </style>
+    /* Lienzo SVG de la animación */
+    .hero-svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+      pointer-events: none;
+      overflow: visible;
+    }
+
+    /* Trazo tipo Delineador de Labios / Labial borgoña */
+    .stroke-path {
+      fill: none;
+      stroke: #821B32;
+      stroke-width: 18;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      filter: drop-shadow(2px 3px 2px rgba(80, 10, 30, 0.25));
+    }
+
+    /* Lápiz Delineador */
+    .pencil-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 40px;
+      height: 160px;
+      z-index: 10;
+      pointer-events: none;
+      transform-origin: 50% 0%; /* Punta del lápiz en el origen */
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    /* Marca de beso */
+    .kiss-mark {
+      position: absolute;
+      top: 13%;
+      right: 14%;
+      width: 90px;
+      height: 70px;
+      z-index: 5;
+      opacity: 0;
+      transform: scale(0.3) rotate(-10deg);
+      transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s ease;
+    }
+
+    .kiss-mark.show {
+      opacity: 0.95;
+      transform: scale(1) rotate(0deg);
+    }
+
+    /* Imagen Principal: Cosmetiquera */
+    .cosmetiquera-wrapper {
+      position: absolute;
+      bottom: 2%;
+      width: 52%;
+      max-width: 580px;
+      z-index: 3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      filter: drop-shadow(0px 15px 25px rgba(130, 27, 50, 0.15));
+    }
+
+    .cosmetiquera-img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      display: block;
+    }
+
+    /* Placeholder visual mientras se carga la imagen local */
+    .cosmetiquera-fallback {
+      display: none;
+      width: 100%;
+      height: 260px;
+      background: linear-gradient(135deg, #e3a5ba 0%, #ca8099 100%);
+      border-radius: 40px 40px 25px 25px;
+      border: 4px solid #fff;
+      box-shadow: inset 0 0 15px rgba(255,255,255,0.5);
+      position: relative;
+    }
+
+    /* ==========================================
+       ADAPTACIONALIDAD (RESPONSIVE)
+       ========================================== */
+    @media (max-width: 768px) {
+      .hero-container {
+        aspect-ratio: 9 / 14;
+      }
+
+      .cosmetiquera-wrapper {
+        width: 85%;
+        bottom: 8%;
+      }
+
+      .stroke-path {
+        stroke-width: 14;
+      }
+
+      .kiss-mark {
+        width: 65px;
+        height: 50px;
+        top: 18%;
+        right: 8%;
+      }
+    }
+
+    /* ==========================================
+       CONTENEDOR PARA PRÓXIMAS SECCIONES
+       ========================================== */
+    .portfolio-main-content {
+      width: 100%;
+      position: relative;
+      /* Aquí se agregarán las siguientes secciones del portafolio */
+    }
+  </style>
 </head>
-<body class="antialiased selection:bg-rose-300 selection:text-rose-950">
+<body>
 
-    <!-- ================================================================= -->
-    <!-- SECCIÓN 1: PORTADA EDITORIAL (PORTAFOLIO COVER)                   -->
-    <!-- ================================================================= -->
-    <section id="portada" class="relative w-full min-h-screen flex flex-col justify-center items-center overflow-hidden bg-[#F7C5CC] px-4 py-8">
-        
-        <!-- STAGE CONTAINER (Mantiene proporciones de la referencia) -->
-        <div class="relative w-full max-w-5xl mx-auto flex flex-col items-center justify-center">
-            
-            <!-- CANVAS SVG DE ESCRITURA Y ANIMACIÓN DEL LÁPIZ -->
-            <div class="relative w-full aspect-[2/1] sm:aspect-[2.3/1] max-w-4xl z-20 flex items-center justify-center">
-                
-                <svg id="stageSvg" viewBox="0 0 1000 480" class="w-full h-full overflow-visible drop-shadow-[0_8px_12px_rgba(136,33,56,0.15)]" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <!-- Gradiente de Textura Delineador/Lápiz Labial Borgoña -->
-                        <linearGradient id="lipstickGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#9a1b36" />
-                            <stop offset="50%" stop-color="#882138" />
-                            <stop offset="100%" stop-color="#691426" />
-                        </linearGradient>
+  <!-- SECCIÓN 1: PORTADA PRINCIPAL -->
+  <section class="hero-section" id="portada">
+    <div class="hero-container">
 
-                        <linearGradient id="shineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" stop-color="#f43f5e" stop-opacity="0.7"/>
-                            <stop offset="100%" stop-color="#fda4af" stop-opacity="0.3"/>
-                        </linearGradient>
-                    </defs>
+      <!-- Marca de Beso (Aparece al terminar la animación) -->
+      <div class="kiss-mark" id="kissMark">
+        <svg viewBox="0 0 100 80" fill="#821B32">
+          <!-- Ilustración vectorial de huella de labial / beso -->
+          <path d="M 10,35 C 20,20 40,15 50,25 C 60,15 80,20 90,35 C 95,42 85,50 75,48 C 62,45 58,48 50,48 C 42,48 38,45 25,48 C 15,50 5,42 10,35 Z" opacity="0.9"/>
+          <path d="M 15,48 C 30,45 42,50 50,52 C 58,50 70,45 85,48 C 92,58 75,72 50,72 C 25,72 8,58 15,48 Z"/>
+          <ellipse cx="50" cy="48" rx="22" ry="5" fill="#F9D2D9"/>
+        </svg>
+      </div>
 
-                    <!-- GRUPO DE TEXTO "PORTAFOLIO" Y SUBRAYADO -->
-                    <g id="textGroup">
-                        <!-- Trazo Principal Cursivo "Portafolio" -->
-                        <path id="pathPortafolio" 
-                              d="M 140 210 C 120 90, 195 80, 185 195 C 178 240, 155 315, 130 355 M 138 235 C 180 210, 240 200, 235 245 C 230 270, 205 275, 198 255 C 190 230, 220 205, 255 228 C 290 250, 310 215, 325 228 C 340 240, 350 230, 375 200 M 375 160 L 375 250 M 350 215 L 398 215 M 410 245 C 420 220, 450 215, 455 245 C 460 268, 478 245, 490 230 M 490 230 C 510 165, 555 130, 535 245 C 525 295, 510 340, 495 365 M 495 230 C 518 208, 560 218, 575 245 M 585 240 C 598 215, 620 220, 628 245 C 635 268, 655 220, 678 175 L 678 255 M 690 215 L 690 245 M 688 190 A 3.5 3.5 0 1 1 688 183 M 715 235 C 728 215, 750 218, 758 245 C 765 268, 785 228, 810 235" 
-                              fill="none" 
-                              stroke="url(#lipstickGrad)" 
-                              stroke-width="26" 
-                              stroke-linecap="round" 
-                              stroke-linejoin="round"/>
+      <!-- Lápiz Delineador Animado -->
+      <div class="pencil-container" id="pencil">
+        <svg viewBox="0 0 40 160" width="100%" height="100%">
+          <!-- Cuerpo del lápiz -->
+          <path d="M 12,30 L 28,30 L 28,140 L 12,140 Z" fill="#5A1221"/>
+          <!-- Tapa / Marca dorada -->
+          <rect x="12" y="125" width="16" height="6" fill="#D4AF37"/>
+          <!-- Madera expuesta -->
+          <path d="M 12,30 L 20,0 L 28,30 Z" fill="#E8C8A0"/>
+          <!-- Punta de labial/delineador borgoña -->
+          <path d="M 17,12 L 20,0 L 23,12 Z" fill="#821B32"/>
+          <!-- Detalle de brillo -->
+          <line x1="16" y1="35" x2="16" y2="120" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+        </svg>
+      </div>
 
-                        <!-- Capa Secundaria de Brillo / Relieve 3D Estilo Lipstick -->
-                        <path id="pathPortafolioShine" 
-                              d="M 140 210 C 120 90, 195 80, 185 195 C 178 240, 155 315, 130 355 M 138 235 C 180 210, 240 200, 235 245 C 230 270, 205 275, 198 255 C 190 230, 220 205, 255 228 C 290 250, 310 215, 325 228 C 340 240, 350 230, 375 200 M 375 160 L 375 250 M 350 215 L 398 215 M 410 245 C 420 220, 450 215, 455 245 C 460 268, 478 245, 490 230 M 490 230 C 510 165, 555 130, 535 245 C 525 295, 510 340, 495 365 M 495 230 C 518 208, 560 218, 575 245 M 585 240 C 598 215, 620 220, 628 245 C 635 268, 655 220, 678 175 L 678 255 M 690 215 L 690 245 M 688 190 A 3.5 3.5 0 1 1 688 183 M 715 235 C 728 215, 750 218, 758 245 C 765 268, 785 228, 810 235" 
-                              fill="none" 
-                              stroke="url(#shineGrad)" 
-                              stroke-width="6" 
-                              stroke-linecap="round" 
-                              stroke-linejoin="round"
-                              opacity="0.75"/>
+      <!-- SVG interactivo con la palabra PORTAFOLIO y el subrayado -->
+      <svg class="hero-svg" viewBox="0 0 1000 600">
+        <!-- Path unificado para la palabra "Portafolio" + Trazo inferior -->
+        <path id="writingPath" class="stroke-path" d="
+          M 210,210 
+          C 180,120 280,100 265,240 
+          C 255,310 230,360 220,240 
+          M 250,190 C 310,180 320,240 280,240 
+          M 340,210 C 330,240 370,250 380,220 
+          M 390,200 C 400,160 410,150 405,240 
+          M 430,220 C 430,200 460,200 450,240 
+          M 475,170 C 470,220 465,270 465,240 C 470,180 520,130 500,240 
+          M 525,220 C 525,200 550,200 545,240 
+          M 565,200 C 560,240 575,250 585,210 
+          M 600,160 C 595,210 590,250 590,230 
+          M 610,195 A 5,5 0 1,1 610,190 
+          M 615,220 C 610,200 645,200 635,240
+          M 270,360 C 450,330 650,275 810,210
+        "/>
+      </svg>
 
-                        <!-- Trazo Inferior (Subrayado Envolvente) -->
-                        <path id="pathUnderline" 
-                              d="M 800 280 C 550 330, 350 320, 240 330" 
-                              fill="none" 
-                              stroke="url(#lipstickGrad)" 
-                              stroke-width="18" 
-                              stroke-linecap="round"/>
-                    </g>
+      <!-- Elemento Principal: Cosmetiquera -->
+      <div class="cosmetiquera-wrapper">
+        <img 
+          src="cosmetiquera.jpeg" 
+          alt="Cosmetiquera Ingrid Padilla" 
+          class="cosmetiquera-img"
+          onerror="this.style.display='none'; document.getElementById('fallbackPouch').style.display='block';"
+        >
+        <!-- Respaldo gráfico si la imagen aún no está disponible -->
+        <div class="cosmetiquera-fallback" id="fallbackPouch"></div>
+      </div>
 
-                    <!-- MARCA DE BESO BORGOÑA (KISS MARK) EN LA ESQUINA SUPERIOR DERECHA -->
-                    <g id="kissMark" class="opacity-0 transition-opacity duration-300" transform="translate(800, 75) scale(1.15) rotate(12)">
-                        <!-- Labio Superior -->
-                        <path d="M 10 32 C 25 12, 55 12, 65 30 C 75 12, 105 12, 120 32 C 95 44, 78 46, 65 42 C 52 46, 35 44, 10 32 Z" fill="#882138" opacity="0.92"/>
-                        <!-- Labio Inferior -->
-                        <path d="M 16 48 C 38 45, 65 62, 65 62 C 65 62, 92 45, 114 48 C 94 74, 36 74, 16 48 Z" fill="#882138" opacity="0.92"/>
-                        <!-- Grietas / Textura de Labial -->
-                        <path d="M 28 26 L 30 36 M 45 20 L 47 35 M 65 22 L 65 38 M 85 20 L 83 35 M 102 26 L 99 36" stroke="#5c1223" stroke-width="2.5" stroke-linecap="round"/>
-                        <path d="M 32 52 L 35 62 M 52 56 L 52 66 M 78 56 L 78 66 M 96 52 L 93 62" stroke="#5c1223" stroke-width="2.5" stroke-linecap="round"/>
-                    </g>
+    </div>
+  </section>
 
-                    <!-- LÁPIZ DELINEADOR DE LABIOS MOBILE/DESKTOP -->
-                    <g id="pencilGroup" style="transform: translate(450px, 420px) rotate(-35deg); transform-origin: 0px 0px;">
-                        <g transform="translate(-14, -210) rotate(22)">
-                            <!-- Cuerpo de madera del lápiz -->
-                            <rect x="0" y="0" width="20" height="170" rx="4" fill="#691426" />
-                            <rect x="0" y="0" width="7" height="170" fill="#882138" opacity="0.6" />
-                            <!-- Anillo dorado decorativo -->
-                            <rect x="0" y="145" width="20" height="8" fill="#d97706" />
-                            <rect x="0" y="147" width="20" height="4" fill="#fef08a" opacity="0.8"/>
-                            <!-- Punta de madera tallada -->
-                            <polygon points="0,170 20,170 10,196" fill="#fde68a" />
-                            <!-- Mina / Punta de delineador borgoña -->
-                            <polygon points="6,186 14,186 10,202" fill="#691426" />
-                            <!-- Grabado del lápiz -->
-                            <text x="-120" y="13" fill="#fbcfe8" font-size="8.5" font-weight="600" font-family="sans-serif" transform="rotate(-90)" letter-spacing="2" opacity="0.9">INGRID PADILLA</text>
-                        </g>
-                    </g>
-                </svg>
-            </div>
+  <!-- ESTRUCTURA PREPARADA PARA CONTINUAR LAS SIGUIENTES SECCIONES -->
+  <main class="portfolio-main-content" id="contenido-principal">
+    <!-- Aquí agregarás la Sección 2 (Proyectos, Sobre mí, etc.) -->
+  </main>
 
-            <!-- ======================================================= -->
-            <!-- ELEMENTO PRINCIPAL: COSMETIQUERA                        -->
-            <!-- ======================================================= -->
-              </div>
-         
-                    <img src="cosmetiquera.jpeg"
-                </div>
-            </div>
-       
-        </div>
-    </section>
+  <!-- ==========================================
+       LÓGICA DE ANIMACIÓN (JAVASCRIPT)
+       ========================================== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const path = document.getElementById('writingPath');
+      const pencil = document.getElementById('pencil');
+      const kissMark = document.getElementById('kissMark');
 
-    <!-- ================================================================= -->
-    <!-- ESTRUCTURA PREPARADA PARA SIGUIENTES SECCIONES (FUTURAS)           -->
-    <!-- No modifiques ni inventes contenido aquí hasta la siguiente fase. -->
-    <!-- ================================================================= -->
-    <!-- 
-    <section id="sobre-mi" class="w-full min-h-screen bg-white">
-        <!-- Contenido sobre Ingrid Padilla -->
-    </section>
+      if (!path || !pencil || !kissMark) return;
 
-    <section id="proyectos" class="w-full min-h-screen bg-[#F7C5CC]">
-        <!-- Galería de proyectos editoriales -->
-    </section>
+      // Calcular la longitud total del trazo
+      const pathLength = path.getTotalLength();
+      
+      // Ocultar el trazo inicialmente usando strokeDash
+      path.style.strokeDasharray = pathLength;
+      path.style.strokeDashoffset = pathLength;
 
-    <section id="contacto" class="w-full min-h-screen bg-white">
-        <!-- Información de contacto -->
-    </section>
-    -->
+      const animationDuration = 3800; // 3.8 segundos de escritura fluida
+      let startTime = null;
 
-    <!-- LÓGICA JAVASCRIPT DE ANIMACIÓN DE ESCRITURA -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Elementos SVG
-            const pathText = document.getElementById("pathPortafolio");
-            const pathTextShine = document.getElementById("pathPortafolioShine");
-            const pathUnderline = document.getElementById("pathUnderline");
-            const pencilGroup = document.getElementById("pencilGroup");
-            const kissMark = document.getElementById("kissMark");
+      function animateWriting(timestamp) {
+        if (!startTime) startTime = timestamp;
+        const elapsed = timestamp - startTime;
+        const progress = Math.min(elapsed / animationDuration, 1);
 
-            // Configuración de trazos
-            const lenText = pathText.getTotalLength();
-            const lenUnderline = pathUnderline.getTotalLength();
+        // Curva de velocidad suave (Ease Out Quad)
+        const easeProgress = 1 - (1 - progress) * (1 - progress);
 
-            // Inicializar estados transparentes/ocultos del trazo
-            pathText.style.strokeDasharray = lenText;
-            pathText.style.strokeDashoffset = lenText;
+        // Actualizar el trazo visible
+        const currentLength = easeProgress * pathLength;
+        path.style.strokeDashoffset = pathLength - currentLength;
 
-            pathTextShine.style.strokeDasharray = lenText;
-            pathTextShine.style.strokeDashoffset = lenText;
+        // Obtener la posición actual de la punta en el lienzo SVG
+        if (currentLength > 0 && currentLength <= pathLength) {
+          const point = path.getPointAtLength(currentLength);
+          
+          // Convertir coordenadas del SVG al contenedor relativo
+          const svg = path.ownerSVGElement;
+          const rect = svg.getBoundingClientRect();
+          const scaleX = rect.width / 1000;
+          const scaleY = rect.height / 600;
 
-            pathUnderline.style.strokeDasharray = lenUnderline;
-            pathUnderline.style.strokeDashoffset = lenUnderline;
+          const pencilX = point.x * scaleX;
+          const pencilY = point.y * scaleY;
 
-            // Duraciones de la animación (en milisegundos)
-            const durationText = 3600;      // 3.6s para escribir "Portafolio"
-            const durationUnderline = 1000; // 1.0s para el subrayado
-            let startTime = null;
+          // Posicionar el lápiz con orientación natural (-35 deg)
+          pencil.style.transform = `translate(${pencilX}px, ${pencilY}px) rotate(-35deg)`;
+          pencil.style.opacity = '1';
+        }
 
-            // Función auxiliar para mover el lápiz según coordenadas (x, y)
-            function updatePencilPosition(pt, angleOffset = -30) {
-                pencilGroup.style.transform = `translate(${pt.x}px, ${pt.y}px) rotate(${angleOffset}deg)`;
-            }
+        if (progress < 1) {
+          requestAnimationFrame(animateWriting);
+        } else {
+          // Final de la animación de escritura
+          setTimeout(() => {
+            // Retirar el lápiz suavemente
+            pencil.style.opacity = '0';
+            // Revelar la marca de beso con animación pop
+            kissMark.classList.add('show');
+          }, 150);
+        }
+      }
 
-            // Animación principal con requestAnimationFrame
-            function animateStep(timestamp) {
-                if (!startTime) startTime = timestamp;
-                const elapsed = timestamp - startTime;
-
-                if (elapsed <= durationText) {
-                    // FASE 1: Escribir palabra "PORTAFOLIO"
-                    const progress = elapsed / durationText;
-                    const currentLen = progress * lenText;
-                    
-                    pathText.style.strokeDashoffset = lenText - currentLen;
-                    pathTextShine.style.strokeDashoffset = lenText - currentLen;
-
-                    // Posicionar la punta del lápiz exactamente en la coordenada actual del trazo
-                    const point = pathText.getPointAtLength(currentLen);
-                    updatePencilPosition(point, -25);
-
-                    requestAnimationFrame(animateStep);
-
-                } else if (elapsed <= (durationText + durationUnderline)) {
-                    // FASE 2: Escribir línea inferior (Subrayado)
-                    const underlineElapsed = elapsed - durationText;
-                    const progress = underlineElapsed / durationUnderline;
-                    const currentLen = progress * lenUnderline;
-
-                    pathUnderline.style.strokeDashoffset = lenUnderline - currentLen;
-
-                    // Posicionar la punta del lápiz en el trazo del subrayado
-                    const point = pathUnderline.getPointAtLength(currentLen);
-                    updatePencilPosition(point, -45);
-
-                    requestAnimationFrame(animateStep);
-
-                } else {
-                    // FASE 3: Finalización - Levantar lápiz y revelar Beso
-                    pathText.style.strokeDashoffset = 0;
-                    pathTextShine.style.strokeDashoffset = 0;
-                    pathUnderline.style.strokeDashoffset = 0;
-
-                    // Reposar lápiz emergiendo suavemente a la derecha
-                    pencilGroup.style.transition = "transform 0.8s cubic-bezier(0.25, 1, 0.5, 1)";
-                    pencilGroup.style.transform = "translate(790px, 320px) rotate(-20deg)";
-
-                    // Aparecer la marca de beso con efecto pop
-                    kissMark.classList.remove("opacity-0");
-                    kissMark.classList.add("kiss-mark-active");
-                }
-            }
-
-            // Iniciar animación automáticamente al cargar la página
-            requestAnimationFrame(animateStep);
-        });
-    </script>
+      // Iniciar animación automáticamente al cargar la página
+      setTimeout(() => {
+        requestAnimationFrame(animateWriting);
+      }, 400);
+    });
+  </script>
 </body>
 </html>
