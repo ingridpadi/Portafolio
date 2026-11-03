@@ -3,8 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portafolio - Ingrid Padilla</title>
+  <title>Ingrid Padilla - Sobre mí</title>
+  
+  <!-- Tipografías de Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Fredoka:wght@600;700&display=swap" rel="stylesheet">
+
   <style>
+    /* ==========================================
+       RESET Y ESTILOS GLOBALES
+       ========================================== */
     * {
       margin: 0;
       padding: 0;
@@ -12,27 +21,284 @@
     }
 
     body {
-      background-color: #F9D2D9; /* Fondo rosa pastel */
+      background-color: #94A5BC; /* Fondo azul grisáceo de la referencia */
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: #521626;
       min-height: 100vh;
       display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
-    img {
-      max-width: 100%;
+    /* ==========================================
+       SECCIÓN CONTENEDORA PRINCIPAL
+       ========================================== */
+    .about-section {
+      width: 100%;
+      max-width: 1300px;
+      margin: 0 auto;
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 42% 58%;
+      align-items: center;
+      position: relative;
+    }
+
+    /* ------------------------------------------
+       COLUMNA IZQUIERDA: FOTOGRAFÍA
+       ------------------------------------------ */
+    .photo-container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      position: relative;
+    }
+
+    .profile-img {
+      width: 100%;
+      height: 100%;
       max-height: 100vh;
-      width: auto;
-      height: auto;
-      object-fit: contain;
+      object-fit: cover;
+      object-position: bottom center;
       display: block;
+    }
+
+    /* Placeholder mientras subes tu foto */
+    .photo-placeholder {
+      display: none;
+      width: 90%;
+      height: 85%;
+      background: rgba(255, 255, 255, 0.2);
+      border: 3px dashed #871D34;
+      border-radius: 20px;
+      justify-content: center;
+      align-items: center;
+      color: #871D34;
+      font-weight: 700;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    /* ------------------------------------------
+       COLUMNA DERECHA: INFORMACIÓN Y TEXTO
+       ========================================== */
+    .info-container {
+      padding: 3rem 4rem 3rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+      align-items: flex-start;
+    }
+
+    /* ENCABEZADO "Hola, soy Ingrid Padilla" */
+    .header-group {
+      position: relative;
+      margin-bottom: 0.5rem;
+    }
+
+    .greeting-subtitle {
+      font-family: 'Caveat', cursive;
+      font-size: 2.8rem;
+      color: #FFFFFF;
+      text-shadow: 2px 2px 0px #871D34, -2px -2px 0px #871D34, 2px -2px 0px #871D34, -2px 2px 0px #871D34;
+      transform: rotate(-3deg);
+      display: block;
+      margin-left: 2.5rem;
+      margin-bottom: -1rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .main-name {
+      font-family: 'Fredoka', cursive;
+      font-size: 4.8rem;
+      color: #FFFFFF;
+      /* Efecto 3D / Sticker con borde borgoña */
+      text-shadow: 
+        4px 4px 0px #871D34,
+        -4px -4px 0px #871D34,
+        4px -4px 0px #871D34,
+        -4px 4px 0px #871D34,
+        0px 6px 0px #500F1F,
+        6px 8px 12px rgba(0, 0, 0, 0.25);
+      letter-spacing: 0.5px;
+      line-height: 1;
+    }
+
+    /* TARJETA DE BIOGRAFÍA */
+    .bio-card {
+      background-color: #FDE8ED; /* Rosa pastel claro */
+      border: 2.5px solid #CE5578; /* Borde rosa/magenta */
+      border-radius: 28px;
+      padding: 2.2rem 2.5rem;
+      box-shadow: 0px 8px 20px rgba(82, 22, 38, 0.12);
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      width: 100%;
+      max-width: 680px;
+    }
+
+    .bio-card p {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: #4A1525;
+      font-weight: 500;
+    }
+
+    /* TARJETA DE ESTUDIOS */
+    .studies-wrapper {
+      position: relative;
+      margin-top: 0.5rem;
+      align-self: center;
+      width: 100%;
+      max-width: 380px;
+    }
+
+    .studies-badge {
+      position: absolute;
+      top: -16px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #871D34;
+      color: #FFFFFF;
+      font-family: 'Fredoka', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      padding: 0.4rem 1.8rem;
+      border-radius: 20px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+      z-index: 2;
+    }
+
+    .studies-card {
+      background-color: #FDE8ED;
+      border: 2.5px solid #CE5578;
+      border-radius: 24px;
+      padding: 1.8rem 1.5rem 1.3rem 1.5rem;
+      text-align: center;
+      box-shadow: 0px 6px 16px rgba(82, 22, 38, 0.1);
+    }
+
+    .studies-dates {
+      font-weight: 700;
+      color: #871D34;
+      font-size: 1.05rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .studies-degree {
+      font-weight: 700;
+      color: #4A1525;
+      font-size: 1.05rem;
+    }
+
+    .studies-school {
+      font-weight: 600;
+      color: #4A1525;
+      font-size: 1rem;
+    }
+
+    /* BARRA INFERIOR DE DECORACIÓN */
+    .bottom-stripe {
+      width: 100%;
+      height: 16px;
+      background-color: #871D34;
+    }
+
+    /* ==========================================
+       ADAPTABILIDAD (RESPONSIVE PARA MÓVIL)
+       ========================================== */
+    @media (max-width: 992px) {
+      .about-section {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding-top: 2rem;
+      }
+
+      .photo-container {
+        height: 450px;
+      }
+
+      .info-container {
+        padding: 2rem 1.5rem;
+        align-items: center;
+      }
+
+      .main-name {
+        font-size: 3.2rem;
+        text-align: center;
+      }
+
+      .greeting-subtitle {
+        font-size: 2.2rem;
+        margin-left: 0;
+        text-align: center;
+      }
+
+      .bio-card p {
+        font-size: 0.98rem;
+      }
     }
   </style>
 </head>
 <body>
 
-  <img src="portada (2).jpeg" alt="Portada Ingrid Padilla">
+  <!-- SECCIÓN SOBRE MÍ -->
+  <section class="about-section" id="sobre-mi">
+    
+    <!-- COLUMNA IZQUIERDA: FOTO -->
+    <div class="photo-container">
+      <img 
+        src="ingrid.jpeg" 
+        alt="Ingrid Padilla" 
+        class="profile-img"
+        onerror="this.style.display='none'; document.getElementById('placeholderFoto').style.display='flex';"
+      >
+      <!-- Indicador en caso de que aún no hayas subido tu foto 'ingrid.jpeg' -->
+      <div class="photo-placeholder" id="placeholderFoto">
+        Tu imagen (ingrid.jpeg) aparecerá aquí
+      </div>
+    </div>
+
+    <!-- COLUMNA DERECHA: TEXTO Y CONTENIDO -->
+    <div class="info-container">
+      
+      <!-- Título de Saludo -->
+      <div class="header-group">
+        <span class="greeting-subtitle">Hola, soy</span>
+        <h1 class="main-name">Ingrid Padilla</h1>
+      </div>
+
+      <!-- Tarjeta Principal de Biografía -->
+      <div class="bio-card">
+        <p>
+          Soy de las personas que encuentran historias en casi cualquier cosa. Me gusta leer, escribir, tomar fotografías, hacer preguntas y guardar pequeños recuerdos de los lugares y momentos que me atraviesan.
+        </p>
+        <p>
+          Me fascinan las ideas, los detalles y crear cosas desde cero. Disfruto experimentar, llenar libretas de anotaciones y convertir ocurrencias que empiezan en mi cabeza en proyectos que puedo tocar, ver y compartir.
+        </p>
+      </div>
+
+      <!-- Tarjeta de Estudios -->
+      <div class="studies-wrapper">
+        <div class="studies-badge">ESTUDIOS</div>
+        <div class="studies-card">
+          <p class="studies-dates">2023 — Actualidad</p>
+          <p class="studies-degree">Publicidad y Diseño Digital</p>
+          <p class="studies-school">Universidad UCIC.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- BARRA DE ACENTUACIÓN EN LA PARTE INFERIOR -->
+  <div class="bottom-stripe"></div>
 
 </body>
 </html>
