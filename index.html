@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portafolio - Ingrid Padilla</title>
   
-  <!-- Google Fonts: Poppins (Texto base) + Satisfy & Kalam (Cursiva estilo labial/scrapbook) -->
+  <!-- Google Fonts: Poppins (Texto), Satisfy & Kalam (Cursivas estilo scrapbook/labial) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Satisfy&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Kalam:wght@700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Satisfy&display=swap" rel="stylesheet">
 
   <style>
     /* ==========================================
@@ -28,7 +28,7 @@
       width: 100%;
       overflow-x: hidden;
       font-family: 'Poppins', sans-serif;
-      color: #4A1525;
+      color: #3B060F;
       background-color: #F9D2D9;
     }
 
@@ -55,17 +55,20 @@
     }
 
     /* ==========================================
-       SECCIÓN 2: SOBRE MÍ (ESTILO SCRAPBOOK)
+       SECCIÓN 2: SOBRE MÍ (FONDO ROJO #B40A25 & ULTRA SCRAPBOOK)
        ========================================== */
     .about-section {
       width: 100vw;
-      background-color: #94A5BC; /* Fondo azul grisáceo */
+      background-color: #B40A25; /* Rojo #B40A25 solicitado */
+      background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1.5px, transparent 1.5px);
+      background-size: 24px 24px; /* Textura sutil de papel punteado de fondo */
       min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
       position: relative;
-      padding: 3rem 1.5rem;
+      padding: 4rem 1.5rem;
+      overflow: hidden;
     }
 
     .about-container {
@@ -75,57 +78,94 @@
       display: grid;
       grid-template-columns: 48% 52%;
       align-items: center;
-      min-height: 90vh;
-      gap: 1.5rem;
+      min-height: 88vh;
+      gap: 2rem;
     }
 
-    /* --- COLUMNA IZQUIERDA: FOTOGRAFÍA AMPLIADA --- */
+    /* --- FOTO ESTILO POLAROID / SCRAPBOOK --- */
     .photo-container {
       width: 100%;
-      height: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
     }
 
-    .profile-img {
-      max-width: 100%;
-      max-height: 92vh; /* Ampliada para mayor presencia visual */
-      width: auto;
-      height: auto;
-      object-fit: contain; /* Foto entera sin cortes */
-      display: block;
-      transform: scale(1.05); /* Incremento ligero de tamaño */
-      filter: drop-shadow(4px 12px 20px rgba(0,0,0,0.18));
+    .polaroid-frame {
+      background: #FFFFFF;
+      padding: 16px 16px 52px 16px; /* Borde estilo Polaroid */
+      border-radius: 4px;
+      box-shadow: 12px 18px 35px rgba(0, 0, 0, 0.4), inset 0 0 10px rgba(0,0,0,0.05);
+      transform: rotate(-3.5deg) scale(1.03);
+      position: relative;
+      transition: transform 0.3s ease;
     }
 
-    /* Placeholder mientras subes ingrid.jpeg */
+    .polaroid-frame:hover {
+      transform: rotate(-1.5deg) scale(1.05);
+    }
+
+    /* Washi tape superior en la foto */
+    .polaroid-frame::before {
+      content: '';
+      position: absolute;
+      top: -18px;
+      left: 50%;
+      transform: translateX(-50%) rotate(2deg);
+      width: 140px;
+      height: 34px;
+      background: rgba(255, 240, 220, 0.85);
+      border: 1px dashed rgba(180, 10, 37, 0.3);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+      z-index: 5;
+    }
+
+    /* Sticker de corazón en la foto */
+    .polaroid-frame::after {
+      content: '♥';
+      position: absolute;
+      bottom: 12px;
+      right: 20px;
+      font-size: 1.8rem;
+      color: #B40A25;
+      transform: rotate(12deg);
+    }
+
+    .profile-img {
+      max-width: 100%;
+      max-height: 80vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      border-radius: 2px;
+    }
+
+    /* Placeholder visual si ingrid.jpeg aún no carga */
     .photo-placeholder {
       display: none;
-      width: 90%;
-      height: 520px;
-      background: rgba(255, 255, 255, 0.3);
-      border: 3px dashed #871D34;
-      border-radius: 20px;
+      width: 380px;
+      height: 500px;
+      background: #FFF;
+      border: 2px dashed #B40A25;
       justify-content: center;
       align-items: center;
-      color: #871D34;
+      color: #B40A25;
       font-weight: 600;
       text-align: center;
       padding: 1.5rem;
     }
 
-    /* --- COLUMNA DERECHA: INFORMACIÓN SCRAPBOOK --- */
+    /* --- COLUMNA DERECHA: ELEMENTOS DE PAPEL Y RECUERDOS --- */
     .info-container {
-      padding: 1rem 2rem;
+      padding: 1rem;
       display: flex;
       flex-direction: column;
       gap: 2.2rem;
       align-items: flex-start;
     }
 
-    /* ENCABEZADO CURSIVO ESTILO LABIAL */
+    /* TÍTULO ESTILO GRAFITI/LABIAL BLANCO Y REVOLVER */
     .header-group {
       position: relative;
       margin-bottom: 0.2rem;
@@ -133,143 +173,156 @@
 
     .greeting-subtitle {
       font-family: 'Satisfy', cursive;
-      font-size: 3.4rem;
-      color: #871D34; /* Borgoña labial */
+      font-size: 3.6rem;
+      color: #FFFFFF;
       display: block;
       margin-left: 0.5rem;
-      margin-bottom: -1rem;
+      margin-bottom: -1.2rem;
       position: relative;
       z-index: 2;
-      text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.7);
+      text-shadow: 2px 3px 6px rgba(0, 0, 0, 0.4);
     }
 
     .main-name {
       font-family: 'Satisfy', cursive;
-      font-size: 5.5rem;
-      color: #871D34; /* Borgoña labial */
+      font-size: 5.6rem;
+      color: #FFF6F8;
       line-height: 1.05;
-      letter-spacing: 0.5px;
+      letter-spacing: 1px;
       text-shadow: 
-        1.5px 1.5px 0px #FFFFFF,
-        -1.5px -1.5px 0px #FFFFFF,
-        1.5px -1.5px 0px #FFFFFF,
-        -1.5px 1.5px 0px #FFFFFF,
-        4px 5px 10px rgba(80, 10, 30, 0.3);
+        3px 3px 0px #610412,
+        -1.5px -1.5px 0px #610412,
+        1.5px -1.5px 0px #610412,
+        -1.5px 1.5px 0px #610412,
+        6px 10px 20px rgba(0, 0, 0, 0.5);
     }
 
-    /* TARJETA DE BIOGRAFÍA TIPO RECUERDO / SCRAPBOOK */
+    /* RECORTE DE PAPEL CREMA DE BIOGRAFÍA */
     .bio-card {
       position: relative;
-      background-color: #FDE8ED;
-      border: 2px dashed #CE5578;
-      border-radius: 16px;
-      padding: 2.2rem 2.4rem;
-      box-shadow: 6px 10px 22px rgba(50, 10, 25, 0.15);
-      transform: rotate(-1.2deg); /* Inclinación de papel pegado */
+      background-color: #FFF6F8; /* Crema rosado suave */
+      border: 2.5px dashed #B40A25; /* Pespunte rojo */
+      border-radius: 20px;
+      padding: 2.4rem;
+      box-shadow: 10px 14px 28px rgba(0, 0, 0, 0.35);
+      transform: rotate(-1.8deg);
       display: flex;
       flex-direction: column;
       gap: 1.2rem;
       width: 100%;
-      max-width: 650px;
+      max-width: 660px;
     }
 
-    /* Detalle de Cinta Adhesiva (Washi Tape) superior */
+    /* Cinta adhesiva washi tape esquina izquierda */
     .bio-card::before {
       content: '';
       position: absolute;
-      top: -14px;
-      left: 35px;
-      width: 110px;
-      height: 28px;
-      background: rgba(255, 255, 255, 0.65);
-      border: 1px solid rgba(206, 85, 120, 0.3);
-      transform: rotate(-3deg);
-      box-shadow: 0 2px 5px rgba(0,0,0,0.06);
+      top: -15px;
+      left: 30px;
+      width: 120px;
+      height: 30px;
+      background: rgba(255, 255, 255, 0.75);
+      border: 1px solid rgba(180, 10, 37, 0.2);
+      transform: rotate(-5deg);
+      box-shadow: 0 3px 6px rgba(0,0,0,0.12);
       z-index: 3;
+    }
+
+    /* Sticker de estrella */
+    .bio-card::after {
+      content: '★';
+      position: absolute;
+      bottom: -15px;
+      right: 25px;
+      font-size: 2.2rem;
+      color: #FFD166;
+      text-shadow: 2px 2px 0px #B40A25;
+      transform: rotate(15deg);
     }
 
     .bio-card p {
       font-family: 'Poppins', sans-serif;
-      font-size: 1rem;
-      line-height: 1.7;
-      color: #4A1525;
+      font-size: 1.02rem;
+      line-height: 1.75;
+      color: #3B060F;
       font-weight: 400;
     }
 
-    /* TARJETA DE ESTUDIOS SCRAPBOOK */
+    /* TARJETA DE ESTUDIOS CON SELLO POSTAL */
     .studies-wrapper {
       position: relative;
       margin-top: 0.5rem;
       align-self: center;
       width: 100%;
-      max-width: 400px;
-      transform: rotate(1.5deg); /* Inclinación opuesta para look dinámico */
+      max-width: 420px;
+      transform: rotate(2.2deg);
     }
 
-    /* Cinta Adhesiva para Estudios */
+    /* Cinta adhesiva washi tape en la esquina superior derecha */
     .studies-wrapper::after {
       content: '';
       position: absolute;
-      top: -12px;
-      right: 25px;
-      width: 90px;
-      height: 26px;
-      background: rgba(255, 255, 255, 0.65);
-      border: 1px solid rgba(206, 85, 120, 0.3);
-      transform: rotate(4deg);
-      box-shadow: 0 2px 5px rgba(0,0,0,0.06);
+      top: -14px;
+      right: 20px;
+      width: 100px;
+      height: 28px;
+      background: rgba(255, 255, 255, 0.75);
+      border: 1px solid rgba(180, 10, 37, 0.2);
+      transform: rotate(6deg);
+      box-shadow: 0 3px 6px rgba(0,0,0,0.12);
       z-index: 4;
     }
 
     .studies-badge {
       position: absolute;
-      top: -18px;
+      top: -20px;
       left: 50%;
       transform: translateX(-50%);
-      background-color: #871D34;
+      background-color: #B40A25;
       color: #FFFFFF;
+      border: 2px stroke #FFFFFF;
       font-family: 'Kalam', cursive;
-      font-size: 1.4rem;
-      letter-spacing: 1.5px;
-      padding: 0.2rem 2.2rem;
-      border-radius: 20px;
-      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.18);
+      font-size: 1.3rem;
+      letter-spacing: 2px;
+      padding: 0.3rem 2.2rem;
+      border-radius: 30px;
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
       z-index: 3;
     }
 
     .studies-card {
-      background-color: #FDE8ED;
-      border: 2px dashed #CE5578;
-      border-radius: 16px;
-      padding: 2.2rem 1.5rem 1.4rem 1.5rem;
+      background-color: #FFF6F8;
+      border: 2.5px dashed #B40A25;
+      border-radius: 20px;
+      padding: 2.4rem 1.8rem 1.6rem 1.8rem;
       text-align: center;
-      box-shadow: 6px 8px 18px rgba(50, 10, 25, 0.12);
+      box-shadow: 8px 12px 25px rgba(0, 0, 0, 0.3);
     }
 
     .studies-dates {
-      font-weight: 600;
-      color: #871D34;
-      font-size: 1rem;
+      font-weight: 700;
+      color: #B40A25;
+      font-size: 1.05rem;
       margin-bottom: 0.2rem;
     }
 
     .studies-degree {
       font-weight: 700;
-      color: #4A1525;
+      color: #3B060F;
       font-size: 1.05rem;
     }
 
     .studies-school {
       font-weight: 500;
-      color: #4A1525;
-      font-size: 0.95rem;
+      color: #3B060F;
+      font-size: 0.98rem;
     }
 
-    /* BARRA INFERIOR DE DECORACIÓN */
+    /* BARRA DECORATIVA INFERIOR */
     .bottom-stripe {
       width: 100%;
-      height: 16px;
-      background-color: #871D34;
+      height: 18px;
+      background-color: #610412;
     }
 
     /* ==========================================
@@ -281,9 +334,9 @@
         min-height: auto;
       }
 
-      .profile-img {
-        transform: scale(1);
-        max-height: 70vh;
+      .polaroid-frame {
+        transform: rotate(0deg) scale(1);
+        max-width: 90%;
       }
 
       .info-container {
@@ -315,25 +368,27 @@
     <img src="portada (2).jpeg" alt="Portada Ingrid Padilla" class="hero-img">
   </section>
 
-  <!-- 2. SECCIÓN SOBRE MÍ -->
+  <!-- 2. SECCIÓN SOBRE MÍ (FONDO ROJO #B40A25 CON ESTILO SCRAPBOOK) -->
   <section class="about-section" id="sobre-mi">
     <div class="about-container">
       
-      <!-- Columna Izquierda: Fotografía Ampliada -->
+      <!-- Columna Izquierda: Fotografía Marco Polaroid Scrapbook -->
       <div class="photo-container">
-        <img 
-          src="ingrid.jpeg" 
-          alt="Ingrid Padilla" 
-          class="profile-img"
-          onerror="this.style.display='none'; document.getElementById('placeholderFoto').style.display='flex';"
-        >
-        <!-- Respaldo gráfico mientras subes la imagen 'ingrid.jpeg' -->
-        <div class="photo-placeholder" id="placeholderFoto">
-          Tu foto ampliada (ingrid.jpeg) se mostrará aquí
+        <div class="polaroid-frame">
+          <img 
+            src="ingrid.jpeg" 
+            alt="Ingrid Padilla" 
+            class="profile-img"
+            onerror="this.style.display='none'; document.getElementById('placeholderFoto').style.display='flex';"
+          >
+          <!-- Respaldo gráfico mientras subes ingrid.jpeg -->
+          <div class="photo-placeholder" id="placeholderFoto">
+            Tu foto Polaroid (ingrid.jpeg) se mostrará aquí
+          </div>
         </div>
       </div>
 
-      <!-- Columna Derecha: Información Estilo Scrapbook -->
+      <!-- Columna Derecha: Recortes de Papel Scrapbook -->
       <div class="info-container">
         
         <!-- Saludo -->
@@ -342,7 +397,7 @@
           <h1 class="main-name">Ingrid Padilla</h1>
         </div>
 
-        <!-- Biografía Recorte Scrapbook -->
+        <!-- Biografía Recorte de Papel -->
         <div class="bio-card">
           <p>
             Soy de las personas que encuentran historias en casi cualquier cosa. Me gusta leer, escribir, tomar fotografías, hacer preguntas y guardar pequeños recuerdos de los lugares y momentos que me atraviesan.
@@ -352,7 +407,7 @@
           </p>
         </div>
 
-        <!-- Estudios Recorte Scrapbook -->
+        <!-- Estudios Recorte con Sello -->
         <div class="studies-wrapper">
           <div class="studies-badge">ESTUDIOS</div>
           <div class="studies-card">
