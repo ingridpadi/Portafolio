@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portafolio - Ingrid Padilla</title>
   
-  <!-- Tipografía Poppins (Todos los grosores) -->
+  <!-- Tipografía Poppins de Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
 
   <style>
     /* ==========================================
-       RESET Y ESTILOS GLOBALES
+       RESET, ESTILOS GLOBALES Y CURSOR RETRO Y2K
        ========================================== */
     * {
       margin: 0;
@@ -21,16 +21,23 @@
       font-family: 'Poppins', sans-serif;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
+    /* Cursor Retro Flecha Pixelada (Estética Dosmilera) */
     body {
       width: 100%;
       overflow-x: hidden;
       color: #3B060F;
       background-color: #F9D2D9;
       padding-top: 48px;
+      cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><path fill='%23FF2A75' stroke='%23FFFFFF' stroke-width='1.5' d='M4,2 L4,18 L8,14 L11,20 L13,19 L10,13 L15,13 Z'/></svg>"), auto;
+    }
+
+    /* Cursor Retro Mano Pixelada para Elementos Clickeables */
+    a, button, .folder-card, .photo-container, .bag-wrapper, .close-modal-btn {
+      cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><path fill='%23FF2A75' stroke='%23FFFFFF' stroke-width='1.5' d='M8 2v9h-1V7H5v4h-1V8H2v7c0 3.3 2.7 6 6 6h5c3.3 0 6-2.7 6-6V9h-2v2h-1V7h-2v4h-1V5H8z'/></svg>"), pointer !important;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     /* ==========================================
@@ -144,7 +151,6 @@
       align-items: center;
       justify-content: center;
       position: relative;
-      cursor: pointer;
       user-select: none;
     }
 
@@ -164,8 +170,7 @@
       transition: transform 0.3s ease;
     }
 
-    .photo-container:hover .profile-img,
-    .photo-container:active .profile-img {
+    .photo-container:hover .profile-img {
       transform: scale(1.02);
     }
 
@@ -184,7 +189,6 @@
       padding: 1.5rem;
     }
 
-    /* Íconos Flotantes de Software */
     .software-icon {
       position: absolute;
       z-index: 10;
@@ -196,7 +200,6 @@
     }
 
     .photo-container:hover .software-icon,
-    .photo-container:active .software-icon,
     .photo-container.active .software-icon {
       opacity: 1;
       transform: scale(1) translateY(0);
@@ -352,12 +355,11 @@
     }
 
     /* ==========================================
-       3. SECCIÓN FRASE E INSPIRACIÓN (RAYAS Y LENTE INTERACTIVO)
+       3. SECCIÓN FRASE E INSPIRACIÓN (BOLSA)
        ========================================== */
     .quote-section {
       width: 100vw;
       min-height: 100vh;
-      /* Fondo de rayas verticales de la referencia */
       background: repeating-linear-gradient(
         90deg,
         #8E2B39,
@@ -384,13 +386,11 @@
       gap: 2rem;
     }
 
-    /* Tarjeta de Frase */
     .quote-card {
-      background-color: #E29FA9; /* Tono rosa pastel de la cita */
+      background-color: #E29FA9;
       border-radius: 36px;
       padding: 3.5rem 3rem;
       box-shadow: 12px 18px 35px rgba(0, 0, 0, 0.3);
-      position: relative;
     }
 
     .quote-text {
@@ -401,7 +401,6 @@
       text-shadow: 2px 3px 6px rgba(110, 20, 35, 0.2);
     }
 
-    /* Contenedor Interactivo de la Bolsa */
     .bag-interactive-container {
       width: 100%;
       display: flex;
@@ -429,7 +428,6 @@
       filter: drop-shadow(0px 15px 30px rgba(0, 0, 0, 0.35));
     }
 
-    /* Lente / Lupa de Exploración */
     .lens-scope {
       position: absolute;
       width: 160px;
@@ -445,7 +443,6 @@
       background-repeat: no-repeat;
     }
 
-    /* Respaldo mientras subes bolsa.jpeg */
     .bag-placeholder {
       display: none;
       width: 420px;
@@ -459,6 +456,163 @@
       font-weight: 700;
       text-align: center;
       padding: 1.5rem;
+    }
+
+    /* ==========================================
+       4. SECCIÓN NUEVA: CARPETAS PROYECTOS (ESTÉTIKA RETRO Y2K)
+       ========================================== */
+    .folders-section {
+      width: 100vw;
+      min-height: 85vh;
+      background-color: #8CA1BC; /* Tono azul perla retro de la referencia */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 4rem 2rem;
+      position: relative;
+    }
+
+    .folders-container {
+      width: 100%;
+      max-width: 1000px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 6rem;
+      flex-wrap: wrap;
+    }
+
+    /* Tarjeta Individual de Carpeta */
+    .folder-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.2rem;
+      text-decoration: none;
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      user-select: none;
+    }
+
+    .folder-card:hover {
+      transform: translateY(-10px) scale(1.05);
+    }
+
+    /* Ilustración Vectorial de Carpeta Rosa Retro */
+    .folder-icon {
+      width: 240px;
+      height: 180px;
+      position: relative;
+      filter: drop-shadow(0px 12px 20px rgba(40, 50, 70, 0.25));
+    }
+
+    .folder-svg {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+
+    /* Efecto de apertura de la carpeta al hacer Hover */
+    .folder-lid {
+      transform-origin: bottom center;
+      transition: transform 0.3s ease;
+    }
+
+    .folder-card:hover .folder-lid {
+      transform: scaleY(0.92) skewX(-2deg);
+    }
+
+    .folder-label {
+      font-weight: 800;
+      font-size: 2.2rem;
+      color: #FFFFFF;
+      letter-spacing: 0.5px;
+      text-shadow: 2px 3px 6px rgba(40, 50, 70, 0.3);
+      text-align: center;
+    }
+
+    /* ==========================================
+       VENTANA RETRO FLOATING MODAL (AL HACER CLIC)
+       ========================================== */
+    .retro-modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(30, 20, 35, 0.5);
+      backdrop-filter: blur(4px);
+      z-index: 2000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .retro-modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .retro-window {
+      width: 90%;
+      max-width: 520px;
+      background: #FFF0F3;
+      border: 3px solid #E3266B;
+      border-radius: 16px;
+      box-shadow: 12px 18px 40px rgba(0, 0, 0, 0.4);
+      overflow: hidden;
+      transform: scale(0.8);
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .retro-modal-overlay.active .retro-window {
+      transform: scale(1);
+    }
+
+    .window-header {
+      background: #E3266B;
+      padding: 0.8rem 1.2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #FFF;
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
+
+    .close-modal-btn {
+      background: #FFD166;
+      border: 2px solid #FFF;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #B40A25;
+      font-weight: 900;
+      font-size: 1rem;
+    }
+
+    .window-body {
+      padding: 2.5rem 2rem;
+      text-align: center;
+      color: #4A1525;
+    }
+
+    .window-body h3 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #E3266B;
+      margin-bottom: 0.8rem;
+    }
+
+    .window-body p {
+      font-size: 1rem;
+      line-height: 1.6;
+      font-weight: 500;
     }
 
     /* BARRA DECORATIVA INFERIOR */
@@ -475,6 +629,19 @@
       .about-container, .quote-container {
         grid-template-columns: 1fr;
         min-height: auto;
+      }
+
+      .folders-container {
+        gap: 3.5rem;
+      }
+
+      .folder-icon {
+        width: 190px;
+        height: 145px;
+      }
+
+      .folder-label {
+        font-size: 1.8rem;
       }
 
       .info-card {
@@ -498,10 +665,6 @@
         grid-template-columns: 1fr;
         gap: 1.2rem;
       }
-
-      .icon-affinity { left: 2%; top: 5%; }
-      .icon-canva { right: 2%; top: 10%; }
-      .icon-photoshop { left: 0%; top: 45%; }
     }
   </style>
 </head>
@@ -537,8 +700,6 @@
   <!-- 2. SECCIÓN SOBRE MÍ -->
   <section class="about-section" id="sobre-mi">
     <div class="about-container">
-      
-      <!-- Fotografía e Íconos -->
       <div class="photo-container" id="photoTrigger">
         <div class="photo-wrapper">
           <div class="software-icon icon-affinity"><span>a</span></div>
@@ -558,7 +719,6 @@
         </div>
       </div>
 
-      <!-- Tarjeta Sobre mí -->
       <div class="info-card">
         <h1>sobre mi</h1>
 
@@ -592,25 +752,20 @@
         </div>
 
       </div>
-
     </div>
   </section>
 
-  <!-- 3. SECCIÓN FRASE E INSPIRACIÓN (BOLSA CON LENTE INTERACTIVO) -->
+  <!-- 3. SECCIÓN FRASE E INSPIRACIÓN -->
   <section class="quote-section" id="inspiracion">
     <div class="quote-container">
-      
-      <!-- Cita inspiradora -->
       <div class="quote-card">
         <h2 class="quote-text">
           “Me gusta explorar, experimentar y encontrar inspiración en cualquier parte.”
         </h2>
       </div>
 
-      <!-- Bolsa con Lente de exploración interactivo -->
       <div class="bag-interactive-container">
         <div class="bag-wrapper" id="bagWrapper">
-          
           <img 
             src="bolsa.jpeg" 
             alt="Bolsa de inspiración Ingrid Padilla" 
@@ -619,7 +774,6 @@
             onerror="this.style.display='none'; document.getElementById('placeholderBolsa').style.display='flex';"
           >
 
-          <!-- Lente / Lupa que se desplaza en tiempo real -->
           <div class="lens-scope" id="lensScope"></div>
 
           <div class="bag-placeholder" id="placeholderBolsa">
@@ -627,17 +781,65 @@
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- 4. SECCIÓN CARPETAS RETRO DE PROYECTOS -->
+  <section class="folders-section" id="proyectos">
+    <div class="folders-container">
+      
+      <!-- Carpeta 1: UCIC -->
+      <div class="folder-card" onclick="openFolder('UCIC')">
+        <div class="folder-icon">
+          <svg class="folder-svg" viewBox="0 0 240 180">
+            <!-- Solapa trasera -->
+            <path d="M 15,30 L 75,30 C 85,30 90,15 105,15 L 225,15 C 233,15 240,22 240,30 L 240,165 C 240,173 233,180 225,180 L 15,180 C 7,180 0,173 0,165 L 0,45 C 0,37 7,30 15,30 Z" fill="#E83E8C"/>
+            <!-- Frente de la carpeta -->
+            <path class="folder-lid" d="M 0,55 L 240,55 L 240,165 C 240,173 233,180 225,180 L 15,180 C 7,180 0,173 0,165 Z" fill="#FF65A3"/>
+            <!-- Brillo suave superior -->
+            <path d="M 12,62 L 228,62" stroke="rgba(255,255,255,0.4)" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="folder-label">UCIC</span>
+      </div>
+
+      <!-- Carpeta 2: Creativas/ADD -->
+      <div class="folder-card" onclick="openFolder('Creativas/ADD')">
+        <div class="folder-icon">
+          <svg class="folder-svg" viewBox="0 0 240 180">
+            <!-- Solapa trasera -->
+            <path d="M 15,30 L 75,30 C 85,30 90,15 105,15 L 225,15 C 233,15 240,22 240,30 L 240,165 C 240,173 233,180 225,180 L 15,180 C 7,180 0,173 0,165 L 0,45 C 0,37 7,30 15,30 Z" fill="#E83E8C"/>
+            <!-- Frente de la carpeta -->
+            <path class="folder-lid" d="M 0,55 L 240,55 L 240,165 C 240,173 233,180 225,180 L 15,180 C 7,180 0,173 0,165 Z" fill="#FF65A3"/>
+            <!-- Brillo suave superior -->
+            <path d="M 12,62 L 228,62" stroke="rgba(255,255,255,0.4)" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="folder-label">Creativas/ADD</span>
+      </div>
 
     </div>
   </section>
 
   <div class="bottom-stripe"></div>
 
-  <!-- ==========================================
-       LÓGICA DE INTERACCIÓN (JAVASCRIPT)
-       ========================================== -->
+  <!-- VENTANA RETRO FLOATING MODAL -->
+  <div class="retro-modal-overlay" id="retroModal">
+    <div class="retro-window">
+      <div class="window-header">
+        <span id="modalTitle">Carpeta</span>
+        <button class="close-modal-btn" onclick="closeFolder()">✕</button>
+      </div>
+      <div class="window-body">
+        <h3 id="modalFolderName">Cargando...</h3>
+        <p>Próximamente los proyectos contenidos en esta sección.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT -->
   <script>
-    // 1. Interacción de fotos para dispositivos táctiles
+    // 1. Interacción de fotos
     const photoTrigger = document.getElementById('photoTrigger');
     if (photoTrigger) {
       photoTrigger.addEventListener('click', () => {
@@ -645,25 +847,23 @@
       });
     }
 
-    // 2. Movimiento del Lente de Aumento sobre la Bolsa
+    // 2. Movimiento del Lente en la bolsa
     const bagWrapper = document.getElementById('bagWrapper');
     const bagImg = document.getElementById('bagImg');
     const lensScope = document.getElementById('lensScope');
 
     if (bagWrapper && bagImg && lensScope) {
-      const zoomLevel = 2.2; // Nivel de zoom dentro del lente
+      const zoomLevel = 2.2;
 
       bagWrapper.addEventListener('mousemove', (e) => {
         const rect = bagWrapper.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
 
-        // Posicionar el lente donde está el cursor
         lensScope.style.left = `${x}px`;
         lensScope.style.top = `${y}px`;
         lensScope.style.opacity = '1';
 
-        // Calcular el zoom proyectado dentro del lente
         lensScope.style.backgroundImage = `url('${bagImg.src}')`;
         lensScope.style.backgroundSize = `${rect.width * zoomLevel}px ${rect.height * zoomLevel}px`;
         lensScope.style.backgroundPosition = `-${x * zoomLevel - lensScope.offsetWidth / 2}px -${y * zoomLevel - lensScope.offsetHeight / 2}px`;
@@ -672,28 +872,26 @@
       bagWrapper.addEventListener('mouseleave', () => {
         lensScope.style.opacity = '0';
       });
+    }
 
-      // Compatibilidad con toques en pantallas táctiles
-      bagWrapper.addEventListener('touchmove', (e) => {
-        const touch = e.touches[0];
-        const rect = bagWrapper.getBoundingClientRect();
-        const x = touch.clientX - rect.left;
-        const y = touch.clientY - rect.top;
+    // 3. Abrir Ventana Retro de Carpetas
+    function openFolder(name) {
+      const modal = document.getElementById('retroModal');
+      const modalTitle = document.getElementById('modalTitle');
+      const modalFolderName = document.getElementById('modalFolderName');
+      
+      if (modal && modalTitle && modalFolderName) {
+        modalTitle.textContent = `${name}.exe`;
+        modalFolderName.textContent = `Proyectos: ${name}`;
+        modal.classList.add('active');
+      }
+    }
 
-        if (x >= 0 && x <= rect.width && y >= 0 && y <= rect.height) {
-          lensScope.style.left = `${x}px`;
-          lensScope.style.top = `${y}px`;
-          lensScope.style.opacity = '1';
-
-          lensScope.style.backgroundImage = `url('${bagImg.src}')`;
-          lensScope.style.backgroundSize = `${rect.width * zoomLevel}px ${rect.height * zoomLevel}px`;
-          lensScope.style.backgroundPosition = `-${x * zoomLevel - lensScope.offsetWidth / 2}px -${y * zoomLevel - lensScope.offsetHeight / 2}px`;
-        }
-      });
-
-      bagWrapper.addEventListener('touchend', () => {
-        lensScope.style.opacity = '0';
-      });
+    function closeFolder() {
+      const modal = document.getElementById('retroModal');
+      if (modal) {
+        modal.classList.remove('active');
+      }
     }
   </script>
 </body>
