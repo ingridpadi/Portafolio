@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portafolio - Ingrid Padilla</title>
   
-  <!-- Tipografía Poppins de Google Fonts -->
+  <!-- Tipografía Poppins (Todos los grosores) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
@@ -30,7 +30,7 @@
       overflow-x: hidden;
       color: #3B060F;
       background-color: #F9D2D9;
-      padding-top: 48px; /* Espacio para el banner superior */
+      padding-top: 48px;
     }
 
     /* ==========================================
@@ -138,7 +138,6 @@
       gap: 2rem;
     }
 
-    /* --- FOTO INTERACTIVA (SIN POLAROID) --- */
     .photo-container {
       width: 100%;
       display: flex;
@@ -170,7 +169,6 @@
       transform: scale(1.02);
     }
 
-    /* Respaldo gráfico si no se encuentra la imagen */
     .photo-placeholder {
       display: none;
       width: 340px;
@@ -186,7 +184,7 @@
       padding: 1.5rem;
     }
 
-    /* --- ÍCONOS FLOTANTES DE SOFTWARE (CANVA, AFFINITY, PHOTOSHOP) --- */
+    /* Íconos Flotantes de Software */
     .software-icon {
       position: absolute;
       z-index: 10;
@@ -197,7 +195,6 @@
       filter: drop-shadow(0px 8px 16px rgba(0, 0, 0, 0.3));
     }
 
-    /* Revelado al hacer hover o toque sobre la imagen */
     .photo-container:hover .software-icon,
     .photo-container:active .software-icon,
     .photo-container.active .software-icon {
@@ -205,9 +202,6 @@
       transform: scale(1) translateY(0);
     }
 
-    /* Posición e identidad de cada icono */
-    
-    /* 1. Affinity (Esquina superior izquierda) */
     .icon-affinity {
       top: 10%;
       left: -8%;
@@ -229,7 +223,6 @@
       line-height: 1;
     }
 
-    /* 2. Canva (Esquina superior derecha) */
     .icon-canva {
       top: 18%;
       right: -6%;
@@ -247,7 +240,6 @@
       transition-delay: 0.12s;
     }
 
-    /* 3. Photoshop (Costado medio izquierdo) */
     .icon-photoshop {
       top: 42%;
       left: -12%;
@@ -265,9 +257,8 @@
       transition-delay: 0.2s;
     }
 
-    /* --- COLUMNA DERECHA: TARJETA TROQUELADA --- */
     .info-card {
-      background-color: #F8C3CD; /* Rosa pastel de la referencia */
+      background-color: #F8C3CD;
       border-radius: 36px;
       padding: 3rem 2.8rem;
       box-shadow: 12px 16px 35px rgba(0, 0, 0, 0.25);
@@ -297,7 +288,6 @@
       margin-bottom: 1rem;
     }
 
-    /* DOS COLUMNAS ABAJO: ESTUDIOS Y MI ENFOQUE */
     .details-grid {
       display: grid;
       grid-template-columns: 48% 48%;
@@ -361,6 +351,116 @@
       line-height: 1;
     }
 
+    /* ==========================================
+       3. SECCIÓN FRASE E INSPIRACIÓN (RAYAS Y LENTE INTERACTIVO)
+       ========================================== */
+    .quote-section {
+      width: 100vw;
+      min-height: 100vh;
+      /* Fondo de rayas verticales de la referencia */
+      background: repeating-linear-gradient(
+        90deg,
+        #8E2B39,
+        #8E2B39 36px,
+        #C66B78 36px,
+        #C66B78 72px
+      );
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 4rem 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .quote-container {
+      width: 100%;
+      max-width: 1350px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 50% 50%;
+      align-items: center;
+      min-height: 85vh;
+      gap: 2rem;
+    }
+
+    /* Tarjeta de Frase */
+    .quote-card {
+      background-color: #E29FA9; /* Tono rosa pastel de la cita */
+      border-radius: 36px;
+      padding: 3.5rem 3rem;
+      box-shadow: 12px 18px 35px rgba(0, 0, 0, 0.3);
+      position: relative;
+    }
+
+    .quote-text {
+      font-weight: 800;
+      font-size: 3.4rem;
+      line-height: 1.15;
+      color: #FFFFFF;
+      text-shadow: 2px 3px 6px rgba(110, 20, 35, 0.2);
+    }
+
+    /* Contenedor Interactivo de la Bolsa */
+    .bag-interactive-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .bag-wrapper {
+      position: relative;
+      display: inline-block;
+      max-width: 100%;
+      cursor: crosshair;
+      overflow: hidden;
+      border-radius: 20px;
+    }
+
+    .bag-img {
+      max-width: 100%;
+      max-height: 82vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      filter: drop-shadow(0px 15px 30px rgba(0, 0, 0, 0.35));
+    }
+
+    /* Lente / Lupa de Exploración */
+    .lens-scope {
+      position: absolute;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 4px solid #FFFFFF;
+      box-shadow: 0 0 0 3px rgba(170, 65, 85, 0.6), 0 12px 28px rgba(0,0,0,0.4), inset 0 0 15px rgba(255,255,255,0.4);
+      pointer-events: none;
+      opacity: 0;
+      transform: translate(-50%, -50%);
+      transition: opacity 0.25s ease;
+      z-index: 20;
+      background-repeat: no-repeat;
+    }
+
+    /* Respaldo mientras subes bolsa.jpeg */
+    .bag-placeholder {
+      display: none;
+      width: 420px;
+      height: 480px;
+      background: rgba(255, 255, 255, 0.25);
+      border: 3px dashed #FFF;
+      border-radius: 24px;
+      justify-content: center;
+      align-items: center;
+      color: #FFF;
+      font-weight: 700;
+      text-align: center;
+      padding: 1.5rem;
+    }
+
     /* BARRA DECORATIVA INFERIOR */
     .bottom-stripe {
       width: 100%;
@@ -372,7 +472,7 @@
        ADAPTABILIDAD (RESPONSIVE)
        ========================================== */
     @media (max-width: 992px) {
-      .about-container {
+      .about-container, .quote-container {
         grid-template-columns: 1fr;
         min-height: auto;
       }
@@ -384,6 +484,14 @@
       .info-card h1 {
         font-size: 3.5rem;
         text-align: center;
+      }
+
+      .quote-card {
+        padding: 2.2rem 1.8rem;
+      }
+
+      .quote-text {
+        font-size: 2.3rem;
       }
 
       .details-grid {
@@ -430,24 +538,12 @@
   <section class="about-section" id="sobre-mi">
     <div class="about-container">
       
-      <!-- Columna Izquierda: Fotografía e Iconos Flotantes -->
+      <!-- Fotografía e Íconos -->
       <div class="photo-container" id="photoTrigger">
         <div class="photo-wrapper">
-          
-          <!-- Ícono Affinity -->
-          <div class="software-icon icon-affinity">
-            <span>a</span>
-          </div>
-
-          <!-- Ícono Canva -->
-          <div class="software-icon icon-canva">
-            Canva
-          </div>
-
-          <!-- Ícono Photoshop -->
-          <div class="software-icon icon-photoshop">
-            Ps
-          </div>
+          <div class="software-icon icon-affinity"><span>a</span></div>
+          <div class="software-icon icon-canva">Canva</div>
+          <div class="software-icon icon-photoshop">Ps</div>
 
           <img 
             src="ingrid.jpeg" 
@@ -462,9 +558,9 @@
         </div>
       </div>
 
-      <!-- Columna Derecha: Tarjeta Sobre mí, Estudios y Mi Enfoque -->
+      <!-- Tarjeta Sobre mí -->
       <div class="info-card">
-        <h1>Sobre mi</h1>
+        <h1>sobre mi</h1>
 
         <div class="bio-text">
           <p>
@@ -476,17 +572,15 @@
         </div>
 
         <div class="details-grid">
-          <!-- Bloque Estudios -->
           <div class="subcard">
-            <h2 class="subcard-title">Estudios</h2>
+            <h2 class="subcard-title">estudios</h2>
             <p class="studies-dates">2023 — Actualidad</p>
             <p class="studies-degree">Publicidad y Diseño Digital</p>
             <p class="studies-school">Universidad UCIC.</p>
           </div>
 
-          <!-- Bloque Mi Enfoque -->
           <div class="subcard">
-            <h2 class="subcard-title">Mi enfoque</h2>
+            <h2 class="subcard-title">mi enfoque</h2>
             <ul class="focus-list">
               <li>Diseño gráfico.</li>
               <li>Identidad visual.</li>
@@ -502,14 +596,103 @@
     </div>
   </section>
 
+  <!-- 3. SECCIÓN FRASE E INSPIRACIÓN (BOLSA CON LENTE INTERACTIVO) -->
+  <section class="quote-section" id="inspiracion">
+    <div class="quote-container">
+      
+      <!-- Cita inspiradora -->
+      <div class="quote-card">
+        <h2 class="quote-text">
+          “Me gusta explorar, experimentar y encontrar inspiración en cualquier parte.”
+        </h2>
+      </div>
+
+      <!-- Bolsa con Lente de exploración interactivo -->
+      <div class="bag-interactive-container">
+        <div class="bag-wrapper" id="bagWrapper">
+          
+          <img 
+            src="bolsa.jpeg" 
+            alt="Bolsa de inspiración Ingrid Padilla" 
+            class="bag-img"
+            id="bagImg"
+            onerror="this.style.display='none'; document.getElementById('placeholderBolsa').style.display='flex';"
+          >
+
+          <!-- Lente / Lupa que se desplaza en tiempo real -->
+          <div class="lens-scope" id="lensScope"></div>
+
+          <div class="bag-placeholder" id="placeholderBolsa">
+            Tu foto de la bolsa (bolsa.jpeg) se mostrará aquí
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
   <div class="bottom-stripe"></div>
 
-  <!-- Script para asegurar interacción en pantallas táctiles de móviles -->
+  <!-- ==========================================
+       LÓGICA DE INTERACCIÓN (JAVASCRIPT)
+       ========================================== -->
   <script>
+    // 1. Interacción de fotos para dispositivos táctiles
     const photoTrigger = document.getElementById('photoTrigger');
     if (photoTrigger) {
       photoTrigger.addEventListener('click', () => {
         photoTrigger.classList.toggle('active');
+      });
+    }
+
+    // 2. Movimiento del Lente de Aumento sobre la Bolsa
+    const bagWrapper = document.getElementById('bagWrapper');
+    const bagImg = document.getElementById('bagImg');
+    const lensScope = document.getElementById('lensScope');
+
+    if (bagWrapper && bagImg && lensScope) {
+      const zoomLevel = 2.2; // Nivel de zoom dentro del lente
+
+      bagWrapper.addEventListener('mousemove', (e) => {
+        const rect = bagWrapper.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        // Posicionar el lente donde está el cursor
+        lensScope.style.left = `${x}px`;
+        lensScope.style.top = `${y}px`;
+        lensScope.style.opacity = '1';
+
+        // Calcular el zoom proyectado dentro del lente
+        lensScope.style.backgroundImage = `url('${bagImg.src}')`;
+        lensScope.style.backgroundSize = `${rect.width * zoomLevel}px ${rect.height * zoomLevel}px`;
+        lensScope.style.backgroundPosition = `-${x * zoomLevel - lensScope.offsetWidth / 2}px -${y * zoomLevel - lensScope.offsetHeight / 2}px`;
+      });
+
+      bagWrapper.addEventListener('mouseleave', () => {
+        lensScope.style.opacity = '0';
+      });
+
+      // Compatibilidad con toques en pantallas táctiles
+      bagWrapper.addEventListener('touchmove', (e) => {
+        const touch = e.touches[0];
+        const rect = bagWrapper.getBoundingClientRect();
+        const x = touch.clientX - rect.left;
+        const y = touch.clientY - rect.top;
+
+        if (x >= 0 && x <= rect.width && y >= 0 && y <= rect.height) {
+          lensScope.style.left = `${x}px`;
+          lensScope.style.top = `${y}px`;
+          lensScope.style.opacity = '1';
+
+          lensScope.style.backgroundImage = `url('${bagImg.src}')`;
+          lensScope.style.backgroundSize = `${rect.width * zoomLevel}px ${rect.height * zoomLevel}px`;
+          lensScope.style.backgroundPosition = `-${x * zoomLevel - lensScope.offsetWidth / 2}px -${y * zoomLevel - lensScope.offsetHeight / 2}px`;
+        }
+      });
+
+      bagWrapper.addEventListener('touchend', () => {
+        lensScope.style.opacity = '0';
       });
     }
   </script>
