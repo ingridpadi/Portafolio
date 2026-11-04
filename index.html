@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portafolio - Ingrid Padilla</title>
   
-  <!-- Tipografía Poppins (Todos los grosores) -->
+  <!-- Tipografía Poppins de Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
@@ -30,7 +30,7 @@
       overflow-x: hidden;
       color: #3B060F;
       background-color: #F9D2D9;
-      padding-top: 48px; /* Espacio reservado para el banner fijo superior */
+      padding-top: 48px; /* Espacio para el banner superior */
     }
 
     /* ==========================================
@@ -42,7 +42,7 @@
       left: 0;
       width: 100%;
       height: 48px;
-      background-color: #E3266B; /* Rosa fucsia de la referencia */
+      background-color: #E3266B;
       z-index: 1000;
       overflow: hidden;
       display: flex;
@@ -58,7 +58,7 @@
     }
 
     .ticker-track:hover {
-      animation-play-state: paused; /* Se pausa suavemente al pasar el cursor */
+      animation-play-state: paused;
     }
 
     .ticker-group {
@@ -80,7 +80,7 @@
     }
 
     .ticker-star {
-      color: #FFDE59; /* Estrella dorada/amarilla */
+      color: #FFDE59;
       font-size: 1.1rem;
       transform: translateY(-1px);
     }
@@ -113,19 +113,17 @@
     }
 
     /* ==========================================
-       2. SECCIÓN SOBRE MÍ (FONDO #AA4155 & SCRAPBOOK)
+       2. SECCIÓN SOBRE MÍ
        ========================================== */
     .about-section {
       width: 100vw;
       background-color: #AA4155;
-      background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1.5px, transparent 1.5px);
-      background-size: 22px 22px;
       min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
       position: relative;
-      padding: 4rem 1.5rem;
+      padding: 3rem 1.5rem;
       overflow: hidden;
     }
 
@@ -134,260 +132,233 @@
       max-width: 1350px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 46% 54%;
+      grid-template-columns: 42% 58%;
       align-items: center;
-      min-height: 88vh;
-      gap: 2.5rem;
+      min-height: 85vh;
+      gap: 2rem;
     }
 
-    /* --- FOTO POLAROID ENRIQUECIDA CON SCRAPBOOK --- */
+    /* --- FOTO INTERACTIVA (SIN POLAROID) --- */
     .photo-container {
       width: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
+      cursor: pointer;
+      user-select: none;
     }
 
-    .polaroid-frame {
-      background: #FFFFFF;
-      padding: 18px 18px 58px 18px;
-      border-radius: 4px;
-      box-shadow: 14px 20px 38px rgba(0, 0, 0, 0.35);
-      transform: rotate(-3deg);
+    .photo-wrapper {
       position: relative;
-      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
-
-    .polaroid-frame:hover {
-      transform: rotate(-1deg) scale(1.03);
-    }
-
-    /* Washi tape superior */
-    .polaroid-frame::before {
-      content: '';
-      position: absolute;
-      top: -18px;
-      left: 50%;
-      transform: translateX(-50%) rotate(1.5deg);
-      width: 140px;
-      height: 34px;
-      background: rgba(255, 248, 230, 0.85);
-      border: 1px dashed rgba(170, 65, 85, 0.4);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-      z-index: 5;
-    }
-
-    /* Alfiler / Pin decorativo */
-    .pushpin {
-      position: absolute;
-      top: -10px;
-      left: 20px;
-      width: 24px;
-      height: 24px;
-      background: #FFD166;
-      border: 2px solid #AA4155;
-      border-radius: 50%;
-      box-shadow: 2px 4px 6px rgba(0,0,0,0.3);
-      z-index: 6;
-    }
-
-    /* Sticker de beso en marco */
-    .kiss-sticker {
-      position: absolute;
-      bottom: 10px;
-      right: 18px;
-      width: 50px;
-      height: 38px;
-      transform: rotate(12deg);
-      opacity: 0.9;
+      display: inline-block;
+      max-width: 100%;
     }
 
     .profile-img {
       max-width: 100%;
-      max-height: 78vh;
+      max-height: 80vh;
       width: auto;
       height: auto;
       object-fit: contain;
       display: block;
-      border-radius: 2px;
+      transition: transform 0.3s ease;
     }
 
-    /* Respaldo gráfico mientras subes ingrid.jpeg */
+    .photo-container:hover .profile-img,
+    .photo-container:active .profile-img {
+      transform: scale(1.02);
+    }
+
+    /* Respaldo gráfico si no se encuentra la imagen */
     .photo-placeholder {
       display: none;
-      width: 380px;
-      height: 480px;
-      background: #FFF;
-      border: 2px dashed #AA4155;
+      width: 340px;
+      height: 460px;
+      background: rgba(255, 255, 255, 0.2);
+      border: 3px dashed #FFF;
+      border-radius: 20px;
       justify-content: center;
       align-items: center;
-      color: #AA4155;
+      color: #FFF;
       font-weight: 700;
       text-align: center;
       padding: 1.5rem;
     }
 
-    /* --- COLUMNA DERECHA: TEXTOS EN MINÚSCULAS --- */
-    .info-container {
-      padding: 1rem;
-      display: flex;
-      flex-direction: column;
-      gap: 2.2rem;
-      align-items: flex-start;
-      position: relative;
-    }
-
-    .header-group {
-      position: relative;
-      margin-bottom: 0.2rem;
-    }
-
-    .greeting-subtitle {
-      font-weight: 800;
-      font-size: 2.4rem;
-      text-transform: lowercase;
-      letter-spacing: 0.5px;
-      color: #FFD166;
-      display: inline-block;
-      margin-left: 0.2rem;
-      margin-bottom: -0.6rem;
-      position: relative;
-      z-index: 2;
-      text-shadow: 2px 2px 0px #5B1C27;
-    }
-
-    .main-name {
-      font-weight: 900;
-      font-size: 5rem;
-      text-transform: lowercase;
-      color: #FFFFFF;
-      line-height: 1.05;
-      letter-spacing: 0px;
-      text-shadow: 
-        4px 4px 0px #5B1C27,
-        -2px -2px 0px #5B1C27,
-        2px -2px 0px #5B1C27,
-        -2px 2px 0px #5B1C27,
-        6px 10px 22px rgba(0, 0, 0, 0.35);
-    }
-
-    /* TARJETA DE BIOGRAFÍA */
-    .bio-card {
-      position: relative;
-      background-color: #FFF6F8;
-      border: 2.5px dashed #AA4155;
-      border-radius: 20px;
-      padding: 2.4rem;
-      box-shadow: 10px 14px 28px rgba(0, 0, 0, 0.28);
-      transform: rotate(-1.5deg);
-      display: flex;
-      flex-direction: column;
-      gap: 1.2rem;
-      width: 100%;
-      max-width: 660px;
-    }
-
-    .bio-card::before {
-      content: '';
+    /* --- ÍCONOS FLOTANTES DE SOFTWARE (CANVA, AFFINITY, PHOTOSHOP) --- */
+    .software-icon {
       position: absolute;
-      top: -15px;
-      left: 30px;
-      width: 120px;
-      height: 30px;
-      background: rgba(255, 255, 255, 0.8);
-      border: 1px solid rgba(170, 65, 85, 0.3);
-      transform: rotate(-4deg);
-      box-shadow: 0 3px 6px rgba(0,0,0,0.12);
-      z-index: 3;
+      z-index: 10;
+      opacity: 0;
+      transform: scale(0.4) translateY(15px);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      pointer-events: none;
+      filter: drop-shadow(0px 8px 16px rgba(0, 0, 0, 0.3));
     }
 
-    .star-sticker {
-      position: absolute;
-      bottom: -18px;
-      right: 25px;
+    /* Revelado al hacer hover o toque sobre la imagen */
+    .photo-container:hover .software-icon,
+    .photo-container:active .software-icon,
+    .photo-container.active .software-icon {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+
+    /* Posición e identidad de cada icono */
+    
+    /* 1. Affinity (Esquina superior izquierda) */
+    .icon-affinity {
+      top: 10%;
+      left: -8%;
+      width: 64px;
+      height: 64px;
+      background: #84E600;
+      border-radius: 14px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 3px solid #111;
+      transition-delay: 0.05s;
+    }
+    .icon-affinity span {
+      font-family: Georgia, serif;
       font-size: 2.2rem;
-      color: #FFD166;
-      text-shadow: 2px 2px 0px #AA4155;
-      transform: rotate(15deg);
-      user-select: none;
+      font-weight: 900;
+      color: #000;
+      line-height: 1;
     }
 
-    .bio-card p {
-      font-weight: 400;
-      font-size: 1.02rem;
-      line-height: 1.75;
-      color: #3B060F;
-    }
-
-    /* TARJETA DE ESTUDIOS */
-    .studies-wrapper {
-      position: relative;
-      margin-top: 0.5rem;
-      align-self: center;
-      width: 100%;
-      max-width: 420px;
-      transform: rotate(2deg);
-    }
-
-    .studies-wrapper::after {
-      content: '';
-      position: absolute;
-      top: -14px;
-      right: 20px;
-      width: 100px;
-      height: 28px;
-      background: rgba(255, 255, 255, 0.8);
-      border: 1px solid rgba(170, 65, 85, 0.3);
-      transform: rotate(5deg);
-      box-shadow: 0 3px 6px rgba(0,0,0,0.12);
-      z-index: 4;
-    }
-
-    .studies-badge {
-      position: absolute;
-      top: -20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: #AA4155;
-      color: #FFFFFF;
-      font-weight: 800;
-      font-size: 1.15rem;
-      text-transform: lowercase;
-      letter-spacing: 1.5px;
-      padding: 0.35rem 2.2rem;
-      border-radius: 30px;
-      border: 2px solid #FFFFFF;
-      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
-      z-index: 3;
-    }
-
-    .studies-card {
-      background-color: #FFF6F8;
-      border: 2.5px dashed #AA4155;
+    /* 2. Canva (Esquina superior derecha) */
+    .icon-canva {
+      top: 18%;
+      right: -6%;
+      width: 76px;
+      height: 76px;
+      background: #00C4CC;
       border-radius: 20px;
-      padding: 2.4rem 1.8rem 1.6rem 1.8rem;
-      text-align: center;
-      box-shadow: 8px 12px 25px rgba(0, 0, 0, 0.25);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #FFF;
+      font-weight: 800;
+      font-size: 1.05rem;
+      border: 3px solid #FFF;
+      transition-delay: 0.12s;
+    }
+
+    /* 3. Photoshop (Costado medio izquierdo) */
+    .icon-photoshop {
+      top: 42%;
+      left: -12%;
+      width: 70px;
+      height: 70px;
+      background: #001E36;
+      border: 3px solid #31A8FF;
+      border-radius: 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #31A8FF;
+      font-weight: 800;
+      font-size: 1.6rem;
+      transition-delay: 0.2s;
+    }
+
+    /* --- COLUMNA DERECHA: TARJETA TROQUELADA --- */
+    .info-card {
+      background-color: #F8C3CD; /* Rosa pastel de la referencia */
+      border-radius: 36px;
+      padding: 3rem 2.8rem;
+      box-shadow: 12px 16px 35px rgba(0, 0, 0, 0.25);
+      position: relative;
+      border: 4px solid #AA4155;
+    }
+
+    .info-card h1 {
+      font-weight: 900;
+      font-size: 4.8rem;
+      text-transform: lowercase;
+      color: #AA4155;
+      line-height: 1;
+      margin-bottom: 1.5rem;
+      letter-spacing: -1px;
+    }
+
+    .bio-text {
+      font-size: 0.98rem;
+      line-height: 1.7;
+      color: #4A1525;
+      margin-bottom: 2rem;
+      font-weight: 400;
+    }
+
+    .bio-text p {
+      margin-bottom: 1rem;
+    }
+
+    /* DOS COLUMNAS ABAJO: ESTUDIOS Y MI ENFOQUE */
+    .details-grid {
+      display: grid;
+      grid-template-columns: 48% 48%;
+      gap: 4%;
+      margin-top: 1rem;
+    }
+
+    .subcard {
+      background-color: #FFF0F3;
+      border-radius: 20px;
+      padding: 1.4rem;
+      box-shadow: 0px 4px 12px rgba(170, 65, 85, 0.08);
+    }
+
+    .subcard-title {
+      font-weight: 800;
+      font-size: 1.4rem;
+      text-transform: lowercase;
+      color: #AA4155;
+      margin-bottom: 0.6rem;
     }
 
     .studies-dates {
       font-weight: 700;
       color: #AA4155;
-      font-size: 1.05rem;
-      margin-bottom: 0.2rem;
+      font-size: 0.92rem;
     }
 
     .studies-degree {
       font-weight: 700;
       color: #3B060F;
-      font-size: 1.05rem;
+      font-size: 0.95rem;
     }
 
     .studies-school {
       font-weight: 500;
       color: #3B060F;
-      font-size: 0.98rem;
+      font-size: 0.9rem;
+    }
+
+    .focus-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .focus-list li {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #3B060F;
+      margin-bottom: 0.35rem;
+      position: relative;
+      padding-left: 1.1rem;
+    }
+
+    .focus-list li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: #AA4155;
+      font-size: 1.2rem;
+      line-height: 1;
     }
 
     /* BARRA DECORATIVA INFERIOR */
@@ -406,39 +377,31 @@
         min-height: auto;
       }
 
-      .polaroid-frame {
-        transform: rotate(0deg) scale(1);
-        max-width: 90%;
+      .info-card {
+        padding: 2rem 1.5rem;
       }
 
-      .info-container {
-        padding: 1.5rem 0.5rem;
-        align-items: center;
-      }
-
-      .main-name {
+      .info-card h1 {
         font-size: 3.5rem;
         text-align: center;
       }
 
-      .greeting-subtitle {
-        font-size: 1.8rem;
-        margin-left: 0;
-        text-align: center;
+      .details-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
       }
 
-      .bio-card, .studies-wrapper {
-        transform: rotate(0deg);
-      }
+      .icon-affinity { left: 2%; top: 5%; }
+      .icon-canva { right: 2%; top: 10%; }
+      .icon-photoshop { left: 0%; top: 45%; }
     }
   </style>
 </head>
 <body>
 
-  <!-- 0. BANNER MARQUESINA ANIMADO Y FIJO EN LA PARTE SUPERIOR -->
+  <!-- 0. BANNER MARQUESINA ANIMADO -->
   <div class="ticker-banner">
     <div class="ticker-track">
-      <!-- Bloque 1 de texto continuo -->
       <div class="ticker-group">
         <div class="ticker-item"><span class="ticker-star">★</span> Ingrid Padilla</div>
         <div class="ticker-item"><span class="ticker-star">★</span> Ingrid Padilla</div>
@@ -447,7 +410,6 @@
         <div class="ticker-item"><span class="ticker-star">★</span> Ingrid Padilla</div>
         <div class="ticker-item"><span class="ticker-star">★</span> Ingrid Padilla</div>
       </div>
-      <!-- Bloque 2 duplicado para bucle sin saltos (seamless loop) -->
       <div class="ticker-group" aria-hidden="true">
         <div class="ticker-item"><span class="ticker-star">★</span> Ingrid Padilla</div>
         <div class="ticker-item"><span class="ticker-star">★</span> Ingrid Padilla</div>
@@ -468,10 +430,24 @@
   <section class="about-section" id="sobre-mi">
     <div class="about-container">
       
-      <!-- Columna Izquierda: Fotografía Marco Polaroid -->
-      <div class="photo-container">
-        <div class="polaroid-frame">
-          <div class="pushpin"></div>
+      <!-- Columna Izquierda: Fotografía e Iconos Flotantes -->
+      <div class="photo-container" id="photoTrigger">
+        <div class="photo-wrapper">
+          
+          <!-- Ícono Affinity -->
+          <div class="software-icon icon-affinity">
+            <span>a</span>
+          </div>
+
+          <!-- Ícono Canva -->
+          <div class="software-icon icon-canva">
+            Canva
+          </div>
+
+          <!-- Ícono Photoshop -->
+          <div class="software-icon icon-photoshop">
+            Ps
+          </div>
 
           <img 
             src="ingrid.jpeg" 
@@ -480,41 +456,44 @@
             onerror="this.style.display='none'; document.getElementById('placeholderFoto').style.display='flex';"
           >
           
-          <svg class="kiss-sticker" viewBox="0 0 100 80" fill="#AA4155">
-            <path d="M 10,35 C 20,20 40,15 50,25 C 60,15 80,20 90,35 C 95,42 85,50 75,48 C 62,45 58,48 50,48 C 42,48 38,45 25,48 C 15,50 5,42 10,35 Z" opacity="0.9"/>
-            <path d="M 15,48 C 30,45 42,50 50,52 C 58,50 70,45 85,48 C 92,58 75,72 50,72 C 25,72 8,58 15,48 Z"/>
-          </svg>
-
           <div class="photo-placeholder" id="placeholderFoto">
-            Tu foto Polaroid (ingrid.jpeg) se mostrará aquí
+            Tu foto (ingrid.jpeg) se mostrará aquí
           </div>
         </div>
       </div>
 
-      <!-- Columna Derecha: Información en Poppins Minúsculas -->
-      <div class="info-container">
-        
-        <div class="header-group">
-          <span class="greeting-subtitle">hola, soy</span>
-          <h1 class="main-name">ingrid padilla</h1>
-        </div>
+      <!-- Columna Derecha: Tarjeta Sobre mí, Estudios y Mi Enfoque -->
+      <div class="info-card">
+        <h1>sobre mi</h1>
 
-        <div class="bio-card">
+        <div class="bio-text">
           <p>
             Soy de las personas que encuentran historias en casi cualquier cosa. Me gusta leer, escribir, tomar fotografías, hacer preguntas y guardar pequeños recuerdos de los lugares y momentos que me atraviesan.
           </p>
           <p>
             Me fascinan las ideas, los detalles y crear cosas desde cero. Disfruto experimentar, llenar libretas de anotaciones y convertir ocurrencias que empiezan en mi cabeza en proyectos que puedo tocar, ver y compartir.
           </p>
-          <span class="star-sticker">★</span>
         </div>
 
-        <div class="studies-wrapper">
-          <div class="studies-badge">estudios</div>
-          <div class="studies-card">
+        <div class="details-grid">
+          <!-- Bloque Estudios -->
+          <div class="subcard">
+            <h2 class="subcard-title">estudios</h2>
             <p class="studies-dates">2023 — Actualidad</p>
             <p class="studies-degree">Publicidad y Diseño Digital</p>
             <p class="studies-school">Universidad UCIC.</p>
+          </div>
+
+          <!-- Bloque Mi Enfoque -->
+          <div class="subcard">
+            <h2 class="subcard-title">mi enfoque</h2>
+            <ul class="focus-list">
+              <li>Diseño gráfico.</li>
+              <li>Identidad visual.</li>
+              <li>Contenido para redes sociales.</li>
+              <li>Comunicación publicitaria.</li>
+              <li>Diseño web.</li>
+            </ul>
           </div>
         </div>
 
@@ -525,5 +504,14 @@
 
   <div class="bottom-stripe"></div>
 
+  <!-- Script para asegurar interacción en pantallas táctiles de móviles -->
+  <script>
+    const photoTrigger = document.getElementById('photoTrigger');
+    if (photoTrigger) {
+      photoTrigger.addEventListener('click', () => {
+        photoTrigger.classList.toggle('active');
+      });
+    }
+  </script>
 </body>
 </html>
