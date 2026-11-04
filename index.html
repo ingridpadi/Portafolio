@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portafolio - Ingrid Padilla</title>
   
-  <!-- Carga única de la tipografía Poppins (Todos los grosores) -->
+  <!-- Tipografía Poppins (Todos los grosores) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
 
   <style>
     /* ==========================================
-       RESET Y ESTILOS GLOBALES (100% POPPINS)
+       RESET Y ESTILOS GLOBALES
        ========================================== */
     * {
       margin: 0;
@@ -30,14 +30,72 @@
       overflow-x: hidden;
       color: #3B060F;
       background-color: #F9D2D9;
+      padding-top: 48px; /* Espacio reservado para el banner fijo superior */
     }
 
     /* ==========================================
-       SECCIÓN 1: PORTADA
+       0. BANNER MARQUESINA FIJO (TOP BAR)
+       ========================================== */
+    .ticker-banner {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 48px;
+      background-color: #E3266B; /* Rosa fucsia de la referencia */
+      z-index: 1000;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+      border-bottom: 2px solid #C01853;
+    }
+
+    .ticker-track {
+      display: flex;
+      width: max-content;
+      animation: marquee 16s linear infinite;
+    }
+
+    .ticker-track:hover {
+      animation-play-state: paused; /* Se pausa suavemente al pasar el cursor */
+    }
+
+    .ticker-group {
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+    }
+
+    .ticker-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 1.2rem;
+      padding: 0 1.2rem;
+      font-weight: 800;
+      font-size: 1.35rem;
+      color: #FFFFFF;
+      letter-spacing: 0.5px;
+      text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .ticker-star {
+      color: #FFDE59; /* Estrella dorada/amarilla */
+      font-size: 1.1rem;
+      transform: translateY(-1px);
+    }
+
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ==========================================
+       1. SECCIÓN PORTADA
        ========================================== */
     .hero-section {
       width: 100vw;
-      min-height: 100vh;
+      min-height: calc(100vh - 48px);
       background-color: #F9D2D9;
       display: flex;
       justify-content: center;
@@ -47,7 +105,7 @@
 
     .hero-img {
       max-width: 100%;
-      max-height: 100vh;
+      max-height: calc(100vh - 48px);
       width: auto;
       height: auto;
       object-fit: contain;
@@ -55,13 +113,13 @@
     }
 
     /* ==========================================
-       SECCIÓN 2: SOBRE MÍ (FONDO #AA4155 & MINÚSCULAS)
+       2. SECCIÓN SOBRE MÍ (FONDO #AA4155 & SCRAPBOOK)
        ========================================== */
     .about-section {
       width: 100vw;
-      background-color: #AA4155; /* Nuevo tono de fondo solicitado */
+      background-color: #AA4155;
       background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1.5px, transparent 1.5px);
-      background-size: 22px 22px; /* Textura de libreta punteada */
+      background-size: 22px 22px;
       min-height: 100vh;
       display: flex;
       justify-content: center;
@@ -93,7 +151,7 @@
 
     .polaroid-frame {
       background: #FFFFFF;
-      padding: 18px 18px 58px 18px; /* Marco Polaroid clásico */
+      padding: 18px 18px 58px 18px;
       border-radius: 4px;
       box-shadow: 14px 20px 38px rgba(0, 0, 0, 0.35);
       transform: rotate(-3deg);
@@ -105,7 +163,7 @@
       transform: rotate(-1deg) scale(1.03);
     }
 
-    /* Washi tape superior transparente */
+    /* Washi tape superior */
     .polaroid-frame::before {
       content: '';
       position: absolute;
@@ -120,7 +178,7 @@
       z-index: 5;
     }
 
-    /* Alfiler / Pin en la esquina superior izquierda */
+    /* Alfiler / Pin decorativo */
     .pushpin {
       position: absolute;
       top: -10px;
@@ -134,7 +192,7 @@
       z-index: 6;
     }
 
-    /* Sticker de beso en la foto Polaroid */
+    /* Sticker de beso en marco */
     .kiss-sticker {
       position: absolute;
       bottom: 10px;
@@ -170,7 +228,7 @@
       padding: 1.5rem;
     }
 
-    /* --- COLUMNA DERECHA: TEXTOS EN POPPINS Y SCRAPBOOK --- */
+    /* --- COLUMNA DERECHA: TEXTOS EN MINÚSCULAS --- */
     .info-container {
       padding: 1rem;
       display: flex;
@@ -180,7 +238,6 @@
       position: relative;
     }
 
-    /* TÍTULO STICKER EN MINÚSCULAS */
     .header-group {
       position: relative;
       margin-bottom: 0.2rem;
@@ -189,9 +246,9 @@
     .greeting-subtitle {
       font-weight: 800;
       font-size: 2.4rem;
-      text-transform: lowercase; /* En minúsculas */
+      text-transform: lowercase;
       letter-spacing: 0.5px;
-      color: #FFD166; /* Amarillo cálido tipo sticker */
+      color: #FFD166;
       display: inline-block;
       margin-left: 0.2rem;
       margin-bottom: -0.6rem;
@@ -203,11 +260,10 @@
     .main-name {
       font-weight: 900;
       font-size: 5rem;
-      text-transform: lowercase; /* En minúsculas */
+      text-transform: lowercase;
       color: #FFFFFF;
       line-height: 1.05;
       letter-spacing: 0px;
-      /* Efecto de borde 3D / recorte de papel */
       text-shadow: 
         4px 4px 0px #5B1C27,
         -2px -2px 0px #5B1C27,
@@ -216,7 +272,7 @@
         6px 10px 22px rgba(0, 0, 0, 0.35);
     }
 
-    /* RECORTE DE PAPEL CREMA - BIOGRAFÍA */
+    /* TARJETA DE BIOGRAFÍA */
     .bio-card {
       position: relative;
       background-color: #FFF6F8;
@@ -232,7 +288,6 @@
       max-width: 660px;
     }
 
-    /* Cinta washi tape esquina superior izquierda */
     .bio-card::before {
       content: '';
       position: absolute;
@@ -247,7 +302,6 @@
       z-index: 3;
     }
 
-    /* Sticker de Estrella en la esquina */
     .star-sticker {
       position: absolute;
       bottom: -18px;
@@ -266,7 +320,7 @@
       color: #3B060F;
     }
 
-    /* RECORTE DE ESTUDIOS CON POPPINS */
+    /* TARJETA DE ESTUDIOS */
     .studies-wrapper {
       position: relative;
       margin-top: 0.5rem;
@@ -276,7 +330,6 @@
       transform: rotate(2deg);
     }
 
-    /* Cinta washi tape esquina superior derecha */
     .studies-wrapper::after {
       content: '';
       position: absolute;
@@ -291,7 +344,6 @@
       z-index: 4;
     }
 
-    /* Badge ESTUDIOS en Poppins Heavy minúsculas */
     .studies-badge {
       position: absolute;
       top: -20px;
@@ -346,7 +398,7 @@
     }
 
     /* ==========================================
-       ADAPTABILIDAD (RESPONSIVE PARA MÓVIL)
+       ADAPTABILIDAD (RESPONSIVE)
        ========================================== */
     @media (max-width: 992px) {
       .about-container {
@@ -383,19 +435,42 @@
 </head>
 <body>
 
-  <!-- 1. PORTADA -->
+  <!-- 0. BANNER MARQUESINA ANIMADO Y FIJO EN LA PARTE SUPERIOR -->
+  <div class="ticker-banner">
+    <div class="ticker-track">
+      <!-- Bloque 1 de texto continuo -->
+      <div class="ticker-group">
+        <div class="ticker-item"><span class="ticker-star">★</span> Ingrid Padilla</div>
+        <div class="ticker-item"><span class="ticker-star">★</span> Ingrid Padilla</div>
+        <div class="ticker-item"><span class="ticker-star">★</span> Ingrid Padilla</div>
+        <div class="ticker-item"><span class="ticker-star">★</span> Ingrid Padilla</div>
+        <div class="ticker-item"><span class="ticker-star">★</span> Ingrid Padilla</div>
+        <div class="ticker-item"><span class="ticker-star">★</span> Ingrid Padilla</div>
+      </div>
+      <!-- Bloque 2 duplicado para bucle sin saltos (seamless loop) -->
+      <div class="ticker-group" aria-hidden="true">
+        <div class="ticker-item"><span class="ticker-star">★</span> Ingrid Padilla</div>
+        <div class="ticker-item"><span class="ticker-star">★</span> Ingrid Padilla</div>
+        <div class="ticker-item"><span class="ticker-star">★</span> Ingrid Padilla</div>
+        <div class="ticker-item"><span class="ticker-star">★</span> Ingrid Padilla</div>
+        <div class="ticker-item"><span class="ticker-star">★</span> Ingrid Padilla</div>
+        <div class="ticker-item"><span class="ticker-star">★</span> Ingrid Padilla</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 1. SECCIÓN PORTADA -->
   <section class="hero-section" id="portada">
     <img src="portada (2).jpeg" alt="Portada Ingrid Padilla" class="hero-img">
   </section>
 
-  <!-- 2. SECCIÓN SOBRE MÍ (FONDO #AA4155 CON POLAROID Y TÍTULO EN MINÚSCULAS) -->
+  <!-- 2. SECCIÓN SOBRE MÍ -->
   <section class="about-section" id="sobre-mi">
     <div class="about-container">
       
       <!-- Columna Izquierda: Fotografía Marco Polaroid -->
       <div class="photo-container">
         <div class="polaroid-frame">
-          <!-- Clip de alfiler decorativo -->
           <div class="pushpin"></div>
 
           <img 
@@ -405,29 +480,25 @@
             onerror="this.style.display='none'; document.getElementById('placeholderFoto').style.display='flex';"
           >
           
-          <!-- Sticker de beso sobre el marco -->
           <svg class="kiss-sticker" viewBox="0 0 100 80" fill="#AA4155">
             <path d="M 10,35 C 20,20 40,15 50,25 C 60,15 80,20 90,35 C 95,42 85,50 75,48 C 62,45 58,48 50,48 C 42,48 38,45 25,48 C 15,50 5,42 10,35 Z" opacity="0.9"/>
             <path d="M 15,48 C 30,45 42,50 50,52 C 58,50 70,45 85,48 C 92,58 75,72 50,72 C 25,72 8,58 15,48 Z"/>
           </svg>
 
-          <!-- Respaldo gráfico mientras subes ingrid.jpeg -->
           <div class="photo-placeholder" id="placeholderFoto">
             Tu foto Polaroid (ingrid.jpeg) se mostrará aquí
           </div>
         </div>
       </div>
 
-      <!-- Columna Derecha: Recortes de Papel y Texto Poppins en Minúsculas -->
+      <!-- Columna Derecha: Información en Poppins Minúsculas -->
       <div class="info-container">
         
-        <!-- Saludo en minúsculas -->
         <div class="header-group">
           <span class="greeting-subtitle">hola, soy</span>
           <h1 class="main-name">ingrid padilla</h1>
         </div>
 
-        <!-- Biografía Recorte de Papel -->
         <div class="bio-card">
           <p>
             Soy de las personas que encuentran historias en casi cualquier cosa. Me gusta leer, escribir, tomar fotografías, hacer preguntas y guardar pequeños recuerdos de los lugares y momentos que me atraviesan.
@@ -438,7 +509,6 @@
           <span class="star-sticker">★</span>
         </div>
 
-        <!-- Estudios Recorte Scrapbook -->
         <div class="studies-wrapper">
           <div class="studies-badge">estudios</div>
           <div class="studies-card">
@@ -453,7 +523,6 @@
     </div>
   </section>
 
-  <!-- Barra decorativa inferior -->
   <div class="bottom-stripe"></div>
 
 </body>
