@@ -32,7 +32,7 @@
     }
 
     /* Cursor de interacción para elementos clickeables */
-    a, button, .folder-card, .photo-container, .bag-wrapper, .close-btn {
+    a, button, .folder-card, .photo-container, .bag-wrapper, .close-btn, .phone-wrapper {
       cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' shape-rendering='crispEdges'><path fill='%23000000' d='M0,0 L0,18 L4,14 L7,20 L10,19 L7,13 L13,13 Z'/><path fill='%23FFD166' d='M1,2 L1,15 L4,12 L7,18 L8,17.5 L5,11.5 L11,11.5 Z'/></svg>"), pointer !important;
     }
 
@@ -528,7 +528,135 @@
     }
 
     /* ==========================================
-       5. MODALES GALERÍA DE PROYECTOS (CREATIVAS Y UCIC)
+       5. SECCIÓN BANNER: "ELIGE CÓMO QUIERES QUE TRABAJEMOS JUNTOS"
+       ========================================== */
+    .work-banner-section {
+      width: 100vw;
+      min-height: 85vh;
+      background-color: #B81B30; /* Fondo rojo intenso Y2K de la referencia */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 4rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .work-banner-container {
+      width: 100%;
+      max-width: 1350px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 55% 45%;
+      align-items: center;
+      min-height: 75vh;
+      gap: 2rem;
+    }
+
+    /* Columna Izquierda: Título y Estrella */
+    .work-banner-left {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      position: relative;
+    }
+
+    /* Estrella lineal superior izquierda */
+    .star-outline-icon {
+      position: absolute;
+      top: -45px;
+      left: -10px;
+      width: 55px;
+      height: 55px;
+      color: rgba(255, 255, 255, 0.95);
+    }
+
+    .work-banner-title {
+      font-weight: 900;
+      font-size: 5rem;
+      line-height: 1.05;
+      color: #FFFFFF;
+      text-transform: lowercase;
+      letter-spacing: -1px;
+      text-shadow: 4px 5px 0px #700C1B, 6px 10px 22px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Columna Derecha: Contenedor para Teléfono Nokia */
+    .work-banner-right {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      width: 100%;
+    }
+
+    .phone-wrapper {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      max-width: 420px;
+    }
+
+    /* Fondo de sello decorativo retro detrás del teléfono */
+    .phone-bg-stamp {
+      position: absolute;
+      width: 320px;
+      height: 380px;
+      background-color: #8CA1BC; /* Tono azul perla */
+      border-radius: 20px;
+      transform: rotate(5deg) scale(0.95);
+      z-index: 1;
+      opacity: 0.9;
+    }
+
+    /* Sticker de destello rosa */
+    .phone-starburst {
+      position: absolute;
+      top: 15%;
+      right: 5%;
+      font-size: 3.5rem;
+      color: #FF2A75;
+      z-index: 2;
+      transform: rotate(15deg);
+      user-select: none;
+    }
+
+    .phone-img {
+      max-width: 100%;
+      max-height: 75vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      position: relative;
+      z-index: 5;
+      filter: drop-shadow(0px 15px 30px rgba(0, 0, 0, 0.4));
+    }
+
+    /* Respaldo gráfico mientras colocas la foto del teléfono */
+    .phone-placeholder {
+      display: none;
+      width: 320px;
+      height: 480px;
+      background: rgba(255, 240, 245, 0.95);
+      border: 3px dashed #B81B30;
+      border-radius: 30px;
+      justify-content: center;
+      align-items: center;
+      color: #B81B30;
+      font-weight: 700;
+      text-align: center;
+      padding: 1.8rem;
+      position: relative;
+      z-index: 5;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+    }
+
+    /* ==========================================
+       6. MODALES GALERÍA DE PROYECTOS (CREATIVAS Y UCIC)
        ========================================== */
     .creativas-modal-overlay,
     .ucic-modal-overlay {
@@ -612,16 +740,7 @@
       padding-left: 1rem;
     }
 
-    .porta-text {
-      font-weight: 900;
-      font-size: 7.5rem;
-      color: #B83849;
-      line-height: 0.9;
-      letter-spacing: -2px;
-      text-shadow: 4px 5px 0px #821D2D, 6px 8px 18px rgba(0,0,0,0.15);
-    }
-
-    .folio-text {
+    .porta-text, .folio-text {
       font-weight: 900;
       font-size: 7.5rem;
       color: #B83849;
@@ -741,9 +860,24 @@
        ADAPTABILIDAD (RESPONSIVE)
        ========================================== */
     @media (max-width: 992px) {
-      .about-container, .quote-container {
+      .about-container, .quote-container, .work-banner-container {
         grid-template-columns: 1fr;
         min-height: auto;
+      }
+
+      .work-banner-title {
+        font-size: 3.4rem;
+        text-align: center;
+      }
+
+      .work-banner-left {
+        align-items: center;
+      }
+
+      .star-outline-icon {
+        top: -30px;
+        left: 50%;
+        transform: translateX(-50%);
       }
 
       .creativas-layout {
@@ -903,7 +1037,7 @@
   <section class="folders-section" id="proyectos">
     <div class="folders-container">
       
-      <!-- Carpeta 1: UCIC (Abre la vista especial UCIC) -->
+      <!-- Carpeta 1: UCIC -->
       <div class="folder-card" onclick="openUcicModal()">
         <div class="folder-icon">
           <svg class="folder-svg" viewBox="0 0 240 180">
@@ -915,7 +1049,7 @@
         <span class="folder-label">UCIC</span>
       </div>
 
-      <!-- Carpeta 2: Creativas/ADD (Abre la vista especial Creativas/ADD) -->
+      <!-- Carpeta 2: Creativas/ADD -->
       <div class="folder-card" onclick="openCreativasModal()">
         <div class="folder-icon">
           <svg class="folder-svg" viewBox="0 0 240 180">
@@ -930,15 +1064,59 @@
     </div>
   </section>
 
+  <!-- 5. NUEVA SECCIÓN BANNER: "ELIGE CÓMO QUIERES QUE TRABAJEMOS JUNTOS" -->
+  <section class="work-banner-section" id="contacto">
+    <div class="work-banner-container">
+      
+      <!-- Columna Izquierda: Título y Estrella -->
+      <div class="work-banner-left">
+        <!-- Estrella blanca trazada -->
+        <svg class="star-outline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+        </svg>
+
+        <h2 class="work-banner-title">
+          elige cómo<br>
+          quieres que<br>
+          trabajemos<br>
+          juntos
+        </h2>
+      </div>
+
+      <!-- Columna Derecha: Espacio reservado para la foto del teléfono -->
+      <div class="work-banner-right">
+        <div class="phone-wrapper">
+          
+          <div class="phone-bg-stamp"></div>
+          <span class="phone-starburst">✦</span>
+
+          <!-- Imagen del Teléfono Nokia -->
+          <img 
+            src="telefono.png" 
+            alt="Teléfono Nokia Ingrid Padilla" 
+            class="phone-img"
+            onerror="this.style.display='none'; document.getElementById('placeholderTelefono').style.display='flex';"
+          >
+          
+          <!-- Respaldo visual mientras agregas la imagen 'telefono.png' -->
+          <div class="phone-placeholder" id="placeholderTelefono">
+            Tu foto del teléfono (telefono.png) se mostrará aquí
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
   <div class="bottom-stripe"></div>
 
-  <!-- 5. MODAL GALERÍA "CREATIVAS / ADD" -->
+  <!-- 6. MODAL GALERÍA "CREATIVAS / ADD" -->
   <div class="creativas-modal-overlay" id="creativasModal" onclick="closeCreativasModalOnOverlay(event)">
     <div class="creativas-modal-view">
       <button class="close-btn" onclick="closeCreativasModal()">✕</button>
       
       <div class="creativas-layout">
-        <!-- Columna Izquierda -->
         <div class="creativas-left">
           <span class="porta-text">Porta</span>
           
@@ -960,58 +1138,25 @@
           <span class="folio-text">folio</span>
         </div>
 
-        <!-- Columna Derecha: Galería de 6 recuadros libres -->
         <div class="creativas-gallery-grid">
-          
-          <div class="gallery-card">
-            <div class="blank-placeholder">
-              <span>+ Agregar Imagen 1</span>
-            </div>
-          </div>
-
-          <div class="gallery-card">
-            <div class="blank-placeholder">
-              <span>+ Agregar Imagen 2</span>
-            </div>
-          </div>
-
-          <div class="gallery-card">
-            <div class="blank-placeholder">
-              <span>+ Agregar Imagen 3</span>
-            </div>
-          </div>
-
-          <div class="gallery-card">
-            <div class="blank-placeholder">
-              <span>+ Agregar Imagen 4</span>
-            </div>
-          </div>
-
-          <div class="gallery-card">
-            <div class="blank-placeholder">
-              <span>+ Agregar Imagen 5</span>
-            </div>
-          </div>
-
-          <div class="gallery-card">
-            <div class="blank-placeholder">
-              <span>+ Agregar Imagen 6</span>
-            </div>
-          </div>
-
+          <div class="gallery-card"><div class="blank-placeholder"><span>+ Agregar Imagen 1</span></div></div>
+          <div class="gallery-card"><div class="blank-placeholder"><span>+ Agregar Imagen 2</span></div></div>
+          <div class="gallery-card"><div class="blank-placeholder"><span>+ Agregar Imagen 3</span></div></div>
+          <div class="gallery-card"><div class="blank-placeholder"><span>+ Agregar Imagen 4</span></div></div>
+          <div class="gallery-card"><div class="blank-placeholder"><span>+ Agregar Imagen 5</span></div></div>
+          <div class="gallery-card"><div class="blank-placeholder"><span>+ Agregar Imagen 6</span></div></div>
         </div>
       </div>
 
     </div>
   </div>
 
-  <!-- 6. MODAL GALERÍA "UCIC" -->
+  <!-- 7. MODAL GALERÍA "UCIC" -->
   <div class="ucic-modal-overlay" id="ucicModal" onclick="closeUcicModalOnOverlay(event)">
     <div class="ucic-modal-view">
       <button class="close-btn" onclick="closeUcicModal()">✕</button>
       
       <div class="creativas-layout">
-        <!-- Columna Izquierda: Porta + Carpeta UCIC + folio + Cursor -->
         <div class="creativas-left">
           <span class="porta-text">Porta</span>
           
@@ -1024,7 +1169,6 @@
               <div class="ucic-folder-label">UCIC</div>
             </div>
 
-            <!-- Cursor Pixelado apuntando a la carpeta -->
             <svg class="creativas-pointer-cursor" viewBox="0 0 24 24" shape-rendering="crispEdges">
               <path fill="#000000" d="M0,0 L0,18 L4,14 L7,20 L10,19 L7,13 L13,13 Z"/>
               <path fill="#FFFFFF" d="M1,2 L1,15 L4,12 L7,18 L8,17.5 L5,11.5 L11,11.5 Z"/>
@@ -1034,45 +1178,13 @@
           <span class="folio-text">folio</span>
         </div>
 
-        <!-- Columna Derecha: Galería de 6 recuadros libres -->
         <div class="creativas-gallery-grid">
-          
-          <div class="gallery-card">
-            <div class="blank-placeholder">
-              <span>+ Agregar Imagen 1</span>
-            </div>
-          </div>
-
-          <div class="gallery-card">
-            <div class="blank-placeholder">
-              <span>+ Agregar Imagen 2</span>
-            </div>
-          </div>
-
-          <div class="gallery-card">
-            <div class="blank-placeholder">
-              <span>+ Agregar Imagen 3</span>
-            </div>
-          </div>
-
-          <div class="gallery-card">
-            <div class="blank-placeholder">
-              <span>+ Agregar Imagen 4</span>
-            </div>
-          </div>
-
-          <div class="gallery-card">
-            <div class="blank-placeholder">
-              <span>+ Agregar Imagen 5</span>
-            </div>
-          </div>
-
-          <div class="gallery-card">
-            <div class="blank-placeholder">
-              <span>+ Agregar Imagen 6</span>
-            </div>
-          </div>
-
+          <div class="gallery-card"><div class="blank-placeholder"><span>+ Agregar Imagen 1</span></div></div>
+          <div class="gallery-card"><div class="blank-placeholder"><span>+ Agregar Imagen 2</span></div></div>
+          <div class="gallery-card"><div class="blank-placeholder"><span>+ Agregar Imagen 3</span></div></div>
+          <div class="gallery-card"><div class="blank-placeholder"><span>+ Agregar Imagen 4</span></div></div>
+          <div class="gallery-card"><div class="blank-placeholder"><span>+ Agregar Imagen 5</span></div></div>
+          <div class="gallery-card"><div class="blank-placeholder"><span>+ Agregar Imagen 6</span></div></div>
         </div>
       </div>
 
@@ -1116,49 +1228,35 @@
       });
     }
 
-    // 3. Abrir / Cerrar Modal de Creativas/ADD
+    // 3. Modales Galería
     function openCreativasModal() {
       const modal = document.getElementById('creativasModal');
-      if (modal) {
-        modal.classList.add('active');
-      }
+      if (modal) modal.classList.add('active');
     }
 
     function closeCreativasModal() {
       const modal = document.getElementById('creativasModal');
-      if (modal) {
-        modal.classList.remove('active');
-      }
+      if (modal) modal.classList.remove('active');
     }
 
     function closeCreativasModalOnOverlay(e) {
-      if (e.target.id === 'creativasModal') {
-        closeCreativasModal();
-      }
+      if (e.target.id === 'creativasModal') closeCreativasModal();
     }
 
-    // 4. Abrir / Cerrar Modal de UCIC
     function openUcicModal() {
       const modal = document.getElementById('ucicModal');
-      if (modal) {
-        modal.classList.add('active');
-      }
+      if (modal) modal.classList.add('active');
     }
 
     function closeUcicModal() {
       const modal = document.getElementById('ucicModal');
-      if (modal) {
-        modal.classList.remove('active');
-      }
+      if (modal) modal.classList.remove('active');
     }
 
     function closeUcicModalOnOverlay(e) {
-      if (e.target.id === 'ucicModal') {
-        closeUcicModal();
-      }
+      if (e.target.id === 'ucicModal') closeUcicModal();
     }
 
-    // Cerrar con tecla Esc
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         closeCreativasModal();
