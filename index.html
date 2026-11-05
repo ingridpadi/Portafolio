@@ -12,7 +12,7 @@
 
   <style>
     /* ==========================================
-       RESET, ESTILOS GLOBALES Y CURSOR RETRO Y2K
+       RESET, ESTILOS GLOBALES Y CURSOR PIXEL RETRO
        ========================================== */
     * {
       margin: 0;
@@ -21,19 +21,19 @@
       font-family: 'Poppins', sans-serif;
     }
 
-    /* Cursor Retro Flecha Pixelada (Estética Dosmilera) */
+    /* Cursor Flecha Pixelada Retro (Estética Dosmilera / Y2K) */
     body {
       width: 100%;
       overflow-x: hidden;
       color: #3B060F;
       background-color: #F9D2D9;
       padding-top: 48px;
-      cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><path fill='%23FF2A75' stroke='%23FFFFFF' stroke-width='1.5' d='M4,2 L4,18 L8,14 L11,20 L13,19 L10,13 L15,13 Z'/></svg>"), auto;
+      cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' shape-rendering='crispEdges'><path fill='%23000000' d='M0,0 L0,18 L4,14 L7,20 L10,19 L7,13 L13,13 Z'/><path fill='%23FFFFFF' d='M1,2 L1,15 L4,12 L7,18 L8,17.5 L5,11.5 L11,11.5 Z'/></svg>"), auto;
     }
 
-    /* Cursor Retro Mano Pixelada para Elementos Clickeables */
-    a, button, .folder-card, .photo-container, .bag-wrapper, .close-modal-btn {
-      cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><path fill='%23FF2A75' stroke='%23FFFFFF' stroke-width='1.5' d='M8 2v9h-1V7H5v4h-1V8H2v7c0 3.3 2.7 6 6 6h5c3.3 0 6-2.7 6-6V9h-2v2h-1V7h-2v4h-1V5H8z'/></svg>"), pointer !important;
+    /* Cursor de interacción para elementos clickeables */
+    a, button, .folder-card, .photo-container, .bag-wrapper, .close-btn {
+      cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' shape-rendering='crispEdges'><path fill='%23000000' d='M0,0 L0,18 L4,14 L7,20 L10,19 L7,13 L13,13 Z'/><path fill='%23FFD166' d='M1,2 L1,15 L4,12 L7,18 L8,17.5 L5,11.5 L11,11.5 Z'/></svg>"), pointer !important;
     }
 
     html {
@@ -459,12 +459,12 @@
     }
 
     /* ==========================================
-       4. SECCIÓN NUEVA: CARPETAS PROYECTOS (ESTÉTIKA RETRO Y2K)
+       4. SECCIÓN CARPETAS PROYECTOS (ESTÉTICA Y2K)
        ========================================== */
     .folders-section {
       width: 100vw;
       min-height: 85vh;
-      background-color: #8CA1BC; /* Tono azul perla retro de la referencia */
+      background-color: #8CA1BC;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -482,7 +482,6 @@
       flex-wrap: wrap;
     }
 
-    /* Tarjeta Individual de Carpeta */
     .folder-card {
       display: flex;
       flex-direction: column;
@@ -497,7 +496,6 @@
       transform: translateY(-10px) scale(1.05);
     }
 
-    /* Ilustración Vectorial de Carpeta Rosa Retro */
     .folder-icon {
       width: 240px;
       height: 180px;
@@ -511,7 +509,6 @@
       overflow: visible;
     }
 
-    /* Efecto de apertura de la carpeta al hacer Hover */
     .folder-lid {
       transform-origin: bottom center;
       transition: transform 0.3s ease;
@@ -531,88 +528,193 @@
     }
 
     /* ==========================================
-       VENTANA RETRO FLOATING MODAL (AL HACER CLIC)
+       5. MODAL GALERÍA "CREATIVAS / ADD" (SEGÚN REFERENCIA)
        ========================================== */
-    .retro-modal-overlay {
+    .creativas-modal-overlay {
       position: fixed;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
-      background: rgba(30, 20, 35, 0.5);
-      backdrop-filter: blur(4px);
-      z-index: 2000;
+      background: rgba(30, 15, 25, 0.65);
+      backdrop-filter: blur(6px);
+      z-index: 3000;
       display: flex;
       justify-content: center;
       align-items: center;
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.3s ease;
+      padding: 1.5rem;
     }
 
-    .retro-modal-overlay.active {
+    .creativas-modal-overlay.active {
       opacity: 1;
       pointer-events: auto;
     }
 
-    .retro-window {
-      width: 90%;
-      max-width: 520px;
-      background: #FFF0F3;
-      border: 3px solid #E3266B;
-      border-radius: 16px;
-      box-shadow: 12px 18px 40px rgba(0, 0, 0, 0.4);
-      overflow: hidden;
-      transform: scale(0.8);
+    .creativas-modal-view {
+      width: 100%;
+      max-width: 1200px;
+      background-color: #F7B5C5; /* Fondo rosa pastel de la maqueta */
+      border-radius: 28px;
+      padding: 2.5rem 2rem;
+      box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.45);
+      position: relative;
+      transform: scale(0.92);
       transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      max-height: 92vh;
+      overflow-y: auto;
     }
 
-    .retro-modal-overlay.active .retro-window {
+    .creativas-modal-overlay.active .creativas-modal-view {
       transform: scale(1);
     }
 
-    .window-header {
-      background: #E3266B;
-      padding: 0.8rem 1.2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: #FFF;
-      font-weight: 800;
-      font-size: 1.1rem;
-    }
-
-    .close-modal-btn {
-      background: #FFD166;
-      border: 2px solid #FFF;
-      width: 28px;
-      height: 28px;
+    .close-btn {
+      position: absolute;
+      top: 18px;
+      right: 22px;
+      background-color: #B83849;
+      color: #FFFFFF;
+      border: 2px solid #FFFFFF;
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
+      font-size: 1.2rem;
+      font-weight: 900;
       display: flex;
       justify-content: center;
       align-items: center;
-      color: #B40A25;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      z-index: 10;
+    }
+
+    /* Layout en dos columnas: Izquierda (Portafolio) + Derecha (Galería 6 imágenes) */
+    .creativas-layout {
+      display: grid;
+      grid-template-columns: 40% 60%;
+      align-items: center;
+      gap: 2rem;
+      min-height: 520px;
+    }
+
+    /* Columna Izquierda: "Porta", Carpeta "Creativas/ADD", "folio" y Cursor */
+    .creativas-left {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+      height: 100%;
+      position: relative;
+      padding-left: 1rem;
+    }
+
+    .porta-text {
       font-weight: 900;
-      font-size: 1rem;
+      font-size: 7.5rem;
+      color: #B83849;
+      line-height: 0.9;
+      letter-spacing: -2px;
+      text-shadow: 4px 5px 0px #821D2D, 6px 8px 18px rgba(0,0,0,0.15);
     }
 
-    .window-body {
-      padding: 2.5rem 2rem;
-      text-align: center;
-      color: #4A1525;
+    .folio-text {
+      font-weight: 900;
+      font-size: 7.5rem;
+      color: #B83849;
+      line-height: 0.9;
+      letter-spacing: -2px;
+      text-shadow: 4px 5px 0px #821D2D, 6px 8px 18px rgba(0,0,0,0.15);
     }
 
-    .window-body h3 {
-      font-size: 1.8rem;
+    .creativas-folder-wrapper {
+      position: relative;
+      margin: 1.5rem 0 1.5rem 2rem;
+    }
+
+    .creativas-folder-box {
+      width: 250px;
+      height: 185px;
+      position: relative;
+      filter: drop-shadow(0px 10px 22px rgba(130, 29, 45, 0.3));
+    }
+
+    .creativas-folder-label {
+      position: absolute;
+      top: 55%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       font-weight: 800;
-      color: #E3266B;
-      margin-bottom: 0.8rem;
+      font-size: 1.7rem;
+      color: #FFFFFF;
+      text-align: center;
+      line-height: 1.1;
+      width: 85%;
+      text-shadow: 1px 2px 4px rgba(0,0,0,0.25);
     }
 
-    .window-body p {
-      font-size: 1rem;
-      line-height: 1.6;
-      font-weight: 500;
+    /* Cursor señalando la carpeta */
+    .creativas-pointer-cursor {
+      position: absolute;
+      bottom: -15px;
+      left: -35px;
+      width: 65px;
+      height: 65px;
+      transform: rotate(-15deg);
+      filter: drop-shadow(3px 5px 6px rgba(0,0,0,0.3));
+      z-index: 5;
+    }
+
+    /* Columna Derecha: Galería de 6 recuadros (2 filas x 3 columnas) */
+    .creativas-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+      width: 100%;
+    }
+
+    /* Card blanca limpia preparada para colocar tus imágenes */
+    .gallery-card {
+      background-color: #FFFFFF;
+      border-radius: 12px;
+      aspect-ratio: 4 / 5;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+      overflow: hidden;
+      position: relative;
+      border: 3px solid #FFFFFF;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .gallery-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Placeholder visual cuando aún no hay src cargado */
+    .blank-placeholder {
+      width: 100%;
+      height: 100%;
+      background-color: #FFFFFF;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #D67A8A;
+      font-weight: 600;
+      font-size: 0.85rem;
+      border: 2px dashed #F5B5C5;
+      border-radius: 8px;
     }
 
     /* BARRA DECORATIVA INFERIOR */
@@ -631,21 +733,21 @@
         min-height: auto;
       }
 
-      .folders-container {
-        gap: 3.5rem;
+      .creativas-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
       }
 
-      .folder-icon {
-        width: 190px;
-        height: 145px;
+      .creativas-left {
+        align-items: center;
       }
 
-      .folder-label {
-        font-size: 1.8rem;
+      .porta-text, .folio-text {
+        font-size: 4.8rem;
       }
 
-      .info-card {
-        padding: 2rem 1.5rem;
+      .creativas-gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
 
       .info-card h1 {
@@ -784,34 +886,28 @@
     </div>
   </section>
 
-  <!-- 4. SECCIÓN CARPETAS RETRO DE PROYECTOS -->
+  <!-- 4. SECCIÓN CARPETAS PROYECTOS -->
   <section class="folders-section" id="proyectos">
     <div class="folders-container">
       
       <!-- Carpeta 1: UCIC -->
-      <div class="folder-card" onclick="openFolder('UCIC')">
+      <div class="folder-card" onclick="alert('Carpeta UCIC seleccionada')">
         <div class="folder-icon">
           <svg class="folder-svg" viewBox="0 0 240 180">
-            <!-- Solapa trasera -->
             <path d="M 15,30 L 75,30 C 85,30 90,15 105,15 L 225,15 C 233,15 240,22 240,30 L 240,165 C 240,173 233,180 225,180 L 15,180 C 7,180 0,173 0,165 L 0,45 C 0,37 7,30 15,30 Z" fill="#E83E8C"/>
-            <!-- Frente de la carpeta -->
             <path class="folder-lid" d="M 0,55 L 240,55 L 240,165 C 240,173 233,180 225,180 L 15,180 C 7,180 0,173 0,165 Z" fill="#FF65A3"/>
-            <!-- Brillo suave superior -->
             <path d="M 12,62 L 228,62" stroke="rgba(255,255,255,0.4)" stroke-width="4" stroke-linecap="round"/>
           </svg>
         </div>
         <span class="folder-label">UCIC</span>
       </div>
 
-      <!-- Carpeta 2: Creativas/ADD -->
-      <div class="folder-card" onclick="openFolder('Creativas/ADD')">
+      <!-- Carpeta 2: Creativas/ADD (Abre la vista especial) -->
+      <div class="folder-card" onclick="openCreativasModal()">
         <div class="folder-icon">
           <svg class="folder-svg" viewBox="0 0 240 180">
-            <!-- Solapa trasera -->
             <path d="M 15,30 L 75,30 C 85,30 90,15 105,15 L 225,15 C 233,15 240,22 240,30 L 240,165 C 240,173 233,180 225,180 L 15,180 C 7,180 0,173 0,165 L 0,45 C 0,37 7,30 15,30 Z" fill="#E83E8C"/>
-            <!-- Frente de la carpeta -->
             <path class="folder-lid" d="M 0,55 L 240,55 L 240,165 C 240,173 233,180 225,180 L 15,180 C 7,180 0,173 0,165 Z" fill="#FF65A3"/>
-            <!-- Brillo suave superior -->
             <path d="M 12,62 L 228,62" stroke="rgba(255,255,255,0.4)" stroke-width="4" stroke-linecap="round"/>
           </svg>
         </div>
@@ -823,23 +919,85 @@
 
   <div class="bottom-stripe"></div>
 
-  <!-- VENTANA RETRO FLOATING MODAL -->
-  <div class="retro-modal-overlay" id="retroModal">
-    <div class="retro-window">
-      <div class="window-header">
-        <span id="modalTitle">Carpeta</span>
-        <button class="close-modal-btn" onclick="closeFolder()">✕</button>
+  <!-- 5. MODAL GALERÍA "CREATIVAS / ADD" -->
+  <div class="creativas-modal-overlay" id="creativasModal" onclick="closeCreativasModalOnOverlay(event)">
+    <div class="creativas-modal-view">
+      <button class="close-btn" onclick="closeCreativasModal()">✕</button>
+      
+      <div class="creativas-layout">
+        <!-- Columna Izquierda: Porta + Carpeta + folio + Cursor -->
+        <div class="creativas-left">
+          <span class="porta-text">Porta</span>
+          
+          <div class="creativas-folder-wrapper">
+            <div class="creativas-folder-box">
+              <svg viewBox="0 0 240 185" style="width:100%; height:100%;">
+                <path d="M 15,30 L 75,30 C 85,30 90,15 105,15 L 225,15 C 233,15 240,22 240,30 L 240,165 C 240,173 233,180 225,180 L 15,180 C 7,180 0,173 0,165 L 0,45 C 0,37 7,30 15,30 Z" fill="#E83E8C"/>
+                <path d="M 0,55 L 240,55 L 240,165 C 240,173 233,180 225,180 L 15,180 C 7,180 0,173 0,165 Z" fill="#FF65A3"/>
+              </svg>
+              <div class="creativas-folder-label">Creativas/<br>ADD</div>
+            </div>
+
+            <!-- Cursor Pixelado apuntando a la carpeta -->
+            <svg class="creativas-pointer-cursor" viewBox="0 0 24 24" shape-rendering="crispEdges">
+              <path fill="#000000" d="M0,0 L0,18 L4,14 L7,20 L10,19 L7,13 L13,13 Z"/>
+              <path fill="#FFFFFF" d="M1,2 L1,15 L4,12 L7,18 L8,17.5 L5,11.5 L11,11.5 Z"/>
+            </svg>
+          </div>
+
+          <span class="folio-text">folio</span>
+        </div>
+
+        <!-- Columna Derecha: Galería de 6 tarjetas blancas listas -->
+        <div class="creativas-gallery-grid">
+          
+          <!-- Recuadros de Galería (Coloca tus imágenes reemplazando src="") -->
+          <div class="gallery-card">
+            <!-- Ejemplo: <img src="proyecto1.jpg" alt="Proyecto 1"> -->
+            <div class="blank-placeholder">
+              <span>+ Agregar Imagen 1</span>
+            </div>
+          </div>
+
+          <div class="gallery-card">
+            <div class="blank-placeholder">
+              <span>+ Agregar Imagen 2</span>
+            </div>
+          </div>
+
+          <div class="gallery-card">
+            <div class="blank-placeholder">
+              <span>+ Agregar Imagen 3</span>
+            </div>
+          </div>
+
+          <div class="gallery-card">
+            <div class="blank-placeholder">
+              <span>+ Agregar Imagen 4</span>
+            </div>
+          </div>
+
+          <div class="gallery-card">
+            <div class="blank-placeholder">
+              <span>+ Agregar Imagen 5</span>
+            </div>
+          </div>
+
+          <div class="gallery-card">
+            <div class="blank-placeholder">
+              <span>+ Agregar Imagen 6</span>
+            </div>
+          </div>
+
+        </div>
       </div>
-      <div class="window-body">
-        <h3 id="modalFolderName">Cargando...</h3>
-        <p>Próximamente los proyectos contenidos en esta sección.</p>
-      </div>
+
     </div>
   </div>
 
   <!-- JAVASCRIPT -->
   <script>
-    // 1. Interacción de fotos
+    // 1. Interacción foto sobre mí
     const photoTrigger = document.getElementById('photoTrigger');
     if (photoTrigger) {
       photoTrigger.addEventListener('click', () => {
@@ -874,25 +1032,33 @@
       });
     }
 
-    // 3. Abrir Ventana Retro de Carpetas
-    function openFolder(name) {
-      const modal = document.getElementById('retroModal');
-      const modalTitle = document.getElementById('modalTitle');
-      const modalFolderName = document.getElementById('modalFolderName');
-      
-      if (modal && modalTitle && modalFolderName) {
-        modalTitle.textContent = `${name}.exe`;
-        modalFolderName.textContent = `Proyectos: ${name}`;
+    // 3. Abrir / Cerrar Modal de Creativas/ADD
+    function openCreativasModal() {
+      const modal = document.getElementById('creativasModal');
+      if (modal) {
         modal.classList.add('active');
       }
     }
 
-    function closeFolder() {
-      const modal = document.getElementById('retroModal');
+    function closeCreativasModal() {
+      const modal = document.getElementById('creativasModal');
       if (modal) {
         modal.classList.remove('active');
       }
     }
+
+    function closeCreativasModalOnOverlay(e) {
+      if (e.target.id === 'creativasModal') {
+        closeCreativasModal();
+      }
+    }
+
+    // Cerrar con tecla Esc
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeCreativasModal();
+      }
+    });
   </script>
 </body>
 </html>
