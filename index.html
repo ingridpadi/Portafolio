@@ -528,11 +528,10 @@
     }
 
     /* ==========================================
-       5. BANNER DE ALTURA COMPACTA: "ELIGE CÓMO QUIERES QUE TRABAJEMOS JUNTOS"
+       5. BANNER: TELÉFONO PROPORCIONAL AL TEXTO
        ========================================== */
     .work-banner-section {
       width: 100vw;
-      min-height: 42vh; /* Altura más compacta */
       background-color: #B81B30;
       display: flex;
       justify-content: center;
@@ -544,50 +543,46 @@
 
     .work-banner-container {
       width: 100%;
-      max-width: 1350px;
+      max-width: 1050px;
       margin: 0 auto;
-      display: grid;
-      grid-template-columns: 58% 42%;
+      display: flex;
+      justify-content: space-between;
       align-items: center;
-      min-height: auto;
-      gap: 1.5rem;
+      gap: 2.5rem;
     }
 
-    /* Columna Izquierda */
     .work-banner-left {
+      position: relative;
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
       justify-content: center;
-      position: relative;
     }
 
     .star-outline-icon {
       position: absolute;
-      top: -32px;
+      top: -28px;
       left: -8px;
-      width: 42px;
-      height: 42px;
+      width: 38px;
+      height: 38px;
       color: rgba(255, 255, 255, 0.95);
     }
 
     .work-banner-title {
       font-weight: 900;
-      font-size: 3.4rem; /* Tamaño de fuente ajustado a la nueva altura */
-      line-height: 1.08;
+      font-size: 3.1rem;
+      line-height: 1.05;
       color: #FFFFFF;
       text-transform: lowercase;
       letter-spacing: -1px;
       text-shadow: 3px 4px 0px #700C1B, 5px 8px 18px rgba(0, 0, 0, 0.3);
     }
 
-    /* Columna Derecha: Teléfono Nokia ajustado */
+    /* Columna Derecha: El teléfono se escala exactamente a la altura del texto */
     .work-banner-right {
       display: flex;
       justify-content: center;
       align-items: center;
       position: relative;
-      width: 100%;
     }
 
     .phone-wrapper {
@@ -595,26 +590,27 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 100%;
-      max-width: 320px;
+      /* Altura ajustada a la altura exacta del bloque de texto (4 líneas) */
+      height: 235px;
+      width: 180px;
     }
 
     .phone-bg-stamp {
       position: absolute;
-      width: 230px;
-      height: 270px;
+      width: 150px;
+      height: 200px;
       background-color: #8CA1BC;
-      border-radius: 16px;
-      transform: rotate(5deg) scale(0.95);
+      border-radius: 14px;
+      transform: rotate(5deg);
       z-index: 1;
       opacity: 0.9;
     }
 
     .phone-starburst {
       position: absolute;
-      top: 8%;
-      right: 4%;
-      font-size: 2.5rem;
+      top: -6px;
+      right: -8px;
+      font-size: 2.2rem;
       color: #FF2A75;
       z-index: 2;
       transform: rotate(15deg);
@@ -622,34 +618,33 @@
     }
 
     .phone-img {
-      max-width: 100%;
-      max-height: 38vh; /* Escala reducida para no desbordar */
+      height: 100%;
+      max-height: 235px;
       width: auto;
-      height: auto;
       object-fit: contain;
       display: block;
       position: relative;
       z-index: 5;
-      filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.35));
+      filter: drop-shadow(0px 8px 16px rgba(0, 0, 0, 0.35));
     }
 
     .phone-placeholder {
       display: none;
-      width: 240px;
-      height: 300px;
+      width: 155px;
+      height: 220px;
       background: rgba(255, 240, 245, 0.95);
-      border: 3px dashed #B81B30;
-      border-radius: 24px;
+      border: 2px dashed #B81B30;
+      border-radius: 18px;
       justify-content: center;
       align-items: center;
       color: #B81B30;
       font-weight: 700;
-      font-size: 0.9rem;
+      font-size: 0.78rem;
       text-align: center;
-      padding: 1.2rem;
+      padding: 0.8rem;
       position: relative;
       z-index: 5;
-      box-shadow: 0 10px 22px rgba(0,0,0,0.3);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.25);
     }
 
     /* ==========================================
@@ -857,14 +852,18 @@
        ADAPTABILIDAD (RESPONSIVE)
        ========================================== */
     @media (max-width: 992px) {
-      .about-container, .quote-container, .work-banner-container {
+      .about-container, .quote-container {
         grid-template-columns: 1fr;
         min-height: auto;
       }
 
-      .work-banner-title {
-        font-size: 2.6rem;
+      .work-banner-container {
+        flex-direction: column;
         text-align: center;
+      }
+
+      .work-banner-title {
+        font-size: 2.5rem;
       }
 
       .work-banner-left {
@@ -872,7 +871,7 @@
       }
 
       .star-outline-icon {
-        top: -26px;
+        top: -24px;
         left: 50%;
         transform: translateX(-50%);
       }
@@ -1061,7 +1060,7 @@
     </div>
   </section>
 
-  <!-- 5. BANNER MAS CORTO / MENOS ALTO: "ELIGE CÓMO QUIERES QUE TRABAJEMOS JUNTOS" -->
+  <!-- 5. BANNER CON TELÉFONO PROPORCIONAL AL TEXTO -->
   <section class="work-banner-section" id="contacto">
     <div class="work-banner-container">
       
@@ -1079,7 +1078,7 @@
         </h2>
       </div>
 
-      <!-- Columna Derecha: Espacio reservado para la foto del teléfono -->
+      <!-- Columna Derecha: Teléfono ajustado exactamente a la altura del texto -->
       <div class="work-banner-right">
         <div class="phone-wrapper">
           
@@ -1094,7 +1093,7 @@
             onerror="this.style.display='none'; document.getElementById('placeholderTelefono').style.display='flex';"
           >
           
-          <!-- Respaldo visual mientras agregas la imagen 'telefono.png' -->
+          <!-- Respaldo visual si no se encuentra la imagen 'telefono.png' -->
           <div class="phone-placeholder" id="placeholderTelefono">
             Tu foto del teléfono (telefono.png) se mostrará aquí
           </div>
