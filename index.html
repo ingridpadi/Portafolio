@@ -223,6 +223,7 @@
       padding: 1.5rem;
     }
 
+    /* ESPACIOS PARA LOGOS OFICIALES DE SOFTWARE */
     .software-icon {
       position: absolute;
       z-index: 10;
@@ -231,6 +232,21 @@
       transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       pointer-events: none;
       filter: drop-shadow(0px 8px 16px rgba(0, 0, 0, 0.3));
+      background-color: #FFFFFF;
+      border: 3px solid #AA4155;
+      border-radius: 18px;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 6px;
+    }
+
+    .software-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
     }
 
     .photo-container:hover .software-icon,
@@ -242,55 +258,24 @@
     .icon-affinity {
       top: 10%;
       left: -8%;
-      width: 64px;
-      height: 64px;
-      background: #84E600;
-      border-radius: 14px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border: 3px solid #111;
+      width: 70px;
+      height: 70px;
       transition-delay: 0.05s;
-    }
-    .icon-affinity span {
-      font-family: Georgia, serif;
-      font-size: 2.2rem;
-      font-weight: 900;
-      color: #000;
-      line-height: 1;
     }
 
     .icon-canva {
       top: 18%;
       right: -6%;
-      width: 76px;
-      height: 76px;
-      background: #00C4CC;
-      border-radius: 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #FFF;
-      font-weight: 800;
-      font-size: 1.05rem;
-      border: 3px solid #FFF;
+      width: 75px;
+      height: 75px;
       transition-delay: 0.12s;
     }
 
     .icon-photoshop {
       top: 42%;
       left: -12%;
-      width: 70px;
-      height: 70px;
-      background: #001E36;
-      border: 3px solid #31A8FF;
-      border-radius: 16px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #31A8FF;
-      font-weight: 800;
-      font-size: 1.6rem;
+      width: 72px;
+      height: 72px;
       transition-delay: 0.2s;
     }
 
@@ -450,7 +435,7 @@
       cursor: crosshair;
       overflow: hidden;
       border-radius: 20px;
-      touch-action: none; /* EVITA EL SCROLL AL USAR LA LUPA TÁCTIL */
+      touch-action: none;
     }
 
     .bag-hint {
@@ -549,4 +534,965 @@
     }
 
     .folder-card:hover {
-      transform: translateY(-10px) scale(1
+      transform: translateY(-10px) scale(1.05);
+    }
+
+    .folder-icon {
+      width: 240px;
+      height: 180px;
+      position: relative;
+      filter: drop-shadow(0px 12px 20px rgba(40, 50, 70, 0.25));
+    }
+
+    .folder-svg {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+
+    .folder-lid {
+      transform-origin: bottom center;
+      transition: transform 0.3s ease;
+    }
+
+    .folder-card:hover .folder-lid {
+      transform: scaleY(0.92) skewX(-2deg);
+    }
+
+    .folder-label {
+      font-weight: 800;
+      font-size: 2.2rem;
+      color: #FFFFFF;
+      letter-spacing: 0.5px;
+      text-shadow: 2px 3px 6px rgba(40, 50, 70, 0.3);
+      text-align: center;
+    }
+
+    /* ==========================================
+       5. BANNER CON TELÉFONO DESTACADO
+       ========================================== */
+    .work-banner-section {
+      width: 100vw;
+      background-color: #BD142F;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 3rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .work-banner-container {
+      width: 100%;
+      max-width: 1150px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2.5rem;
+    }
+
+    .work-banner-left {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 1rem;
+    }
+
+    .star-outline-icon {
+      position: absolute;
+      top: -22px;
+      left: -12px;
+      width: 48px;
+      height: 48px;
+      color: #FFFFFF;
+    }
+
+    .work-banner-title {
+      font-weight: 900;
+      font-size: 3.8rem;
+      line-height: 1.05;
+      color: #FFFFFF;
+      letter-spacing: -1.2px;
+      text-shadow: 3px 4px 0px #700C1B, 5px 8px 18px rgba(0, 0, 0, 0.22);
+    }
+
+    .work-banner-right {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      position: relative;
+    }
+
+    .phone-wrapper {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 310px;
+      width: 250px;
+    }
+
+    .phone-starburst {
+      position: absolute;
+      bottom: 25px;
+      left: -22px;
+      font-size: 5.5rem;
+      color: #E83E8C;
+      z-index: 1;
+      transform: rotate(-10deg);
+      user-select: none;
+      line-height: 1;
+    }
+
+    .phone-img {
+      height: 100%;
+      max-height: 310px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+      position: relative;
+      z-index: 5;
+      filter: drop-shadow(0px 10px 22px rgba(0, 0, 0, 0.4));
+    }
+
+    .phone-placeholder {
+      display: none;
+      width: 210px;
+      height: 300px;
+      background: rgba(255, 240, 245, 0.95);
+      border: 2px dashed #BD142F;
+      border-radius: 24px;
+      justify-content: center;
+      align-items: center;
+      color: #BD142F;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-align: center;
+      padding: 1rem;
+      position: relative;
+      z-index: 5;
+      box-shadow: 0 10px 22px rgba(0,0,0,0.28);
+    }
+
+    /* ==========================================
+       6. BANNER DE CONTACTO INFERIOR (ROSA CLARO)
+       ========================================== */
+    .contact-bar {
+      width: 100vw;
+      background-color: #F8C3CD;
+      padding: 1.1rem 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 3.5rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.85rem;
+      color: #A50E24;
+      font-weight: 800;
+      font-size: 1.45rem;
+      text-decoration: none;
+      letter-spacing: -0.2px;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .contact-item:hover {
+      transform: translateY(-2px);
+      opacity: 0.85;
+    }
+
+    .contact-icon {
+      width: 32px;
+      height: 32px;
+      color: #A50E24;
+      flex-shrink: 0;
+    }
+
+    /* ==========================================
+       7. MODALES GALERÍA DE PROYECTOS (CREATIVAS Y UCIC)
+       ========================================== */
+    .creativas-modal-overlay,
+    .ucic-modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(30, 15, 25, 0.65);
+      backdrop-filter: blur(6px);
+      z-index: 3000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      padding: 1.5rem;
+    }
+
+    .creativas-modal-overlay.active,
+    .ucic-modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .creativas-modal-view,
+    .ucic-modal-view {
+      width: 100%;
+      max-width: 1200px;
+      background-color: #F7B5C5;
+      border-radius: 28px;
+      padding: 2.5rem 2rem;
+      box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.45);
+      position: relative;
+      transform: scale(0.92);
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      max-height: 92vh;
+      overflow-y: auto;
+    }
+
+    .creativas-modal-overlay.active .creativas-modal-view,
+    .ucic-modal-overlay.active .ucic-modal-view {
+      transform: scale(1);
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 18px;
+      right: 22px;
+      background-color: #B83849;
+      color: #FFFFFF;
+      border: 2px solid #FFFFFF;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      font-weight: 900;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      z-index: 10;
+    }
+
+    .creativas-layout {
+      display: grid;
+      grid-template-columns: 40% 60%;
+      align-items: center;
+      gap: 2rem;
+      min-height: 520px;
+    }
+
+    .creativas-left {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+      height: 100%;
+      position: relative;
+      padding-left: 1rem;
+    }
+
+    .porta-text, .folio-text {
+      font-weight: 900;
+      font-size: 7.5rem;
+      color: #B83849;
+      line-height: 0.9;
+      letter-spacing: -2px;
+      text-shadow: 4px 5px 0px #821D2D, 6px 8px 18px rgba(0,0,0,0.15);
+    }
+
+    .creativas-folder-wrapper {
+      position: relative;
+      margin: 1.5rem 0 1.5rem 2rem;
+    }
+
+    .creativas-folder-box {
+      width: 250px;
+      height: 185px;
+      position: relative;
+      filter: drop-shadow(0px 10px 22px rgba(130, 29, 45, 0.3));
+    }
+
+    .creativas-folder-label {
+      position: absolute;
+      top: 55%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-weight: 800;
+      font-size: 1.7rem;
+      color: #FFFFFF;
+      text-align: center;
+      line-height: 1.1;
+      width: 85%;
+      text-shadow: 1px 2px 4px rgba(0,0,0,0.25);
+    }
+
+    .ucic-folder-label {
+      position: absolute;
+      top: 52%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-weight: 900;
+      font-size: 2.5rem;
+      color: #FFFFFF;
+      text-align: center;
+      line-height: 1;
+      letter-spacing: 1px;
+      width: 85%;
+      text-shadow: 1px 2px 4px rgba(0,0,0,0.25);
+    }
+
+    .creativas-pointer-cursor {
+      position: absolute;
+      bottom: -15px;
+      left: -35px;
+      width: 65px;
+      height: 65px;
+      transform: rotate(-15deg);
+      filter: drop-shadow(3px 5px 6px rgba(0,0,0,0.3));
+      z-index: 5;
+    }
+
+    .creativas-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+      width: 100%;
+    }
+
+    .gallery-card {
+      background-color: #FFFFFF;
+      border-radius: 12px;
+      aspect-ratio: 4 / 5;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+      overflow: hidden;
+      position: relative;
+      border: 3px solid #FFFFFF;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .gallery-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .bottom-stripe {
+      width: 100%;
+      height: 18px;
+      background-color: #5B1C27;
+    }
+
+    /* ==========================================
+       ADAPTABILIDAD Y RESPONSIVIDAD MÓVIL
+       ========================================== */
+    @media (max-width: 992px) {
+      .about-container, .quote-container {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .work-banner-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .work-banner-title {
+        font-size: 2.8rem;
+      }
+
+      .work-banner-left {
+        align-items: center;
+      }
+
+      .star-outline-icon {
+        top: -18px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .contact-bar {
+        flex-direction: column;
+        gap: 1.2rem;
+        padding: 1.2rem 1rem;
+      }
+
+      .contact-item {
+        font-size: 1.15rem;
+      }
+
+      .creativas-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .creativas-left {
+        align-items: center;
+      }
+
+      .porta-text, .folio-text {
+        font-size: 4.8rem;
+      }
+
+      .creativas-gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .info-card h1 {
+        font-size: 3.5rem;
+        text-align: center;
+      }
+
+      .quote-card {
+        padding: 2.2rem 1.8rem;
+      }
+
+      .quote-text {
+        font-size: 2.3rem;
+      }
+
+      .details-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .ticker-item {
+        font-size: 1.05rem;
+        padding: 0 0.8rem;
+      }
+
+      .info-card {
+        padding: 2rem 1.4rem;
+        border-radius: 24px;
+      }
+
+      .info-card h1 {
+        font-size: 2.7rem;
+      }
+
+      .quote-card {
+        padding: 1.8rem 1.2rem;
+        border-radius: 24px;
+      }
+
+      .quote-text {
+        font-size: 1.8rem;
+      }
+
+      .work-banner-title {
+        font-size: 2.1rem;
+      }
+
+      .phone-wrapper {
+        height: 240px;
+        width: 190px;
+      }
+
+      .phone-img {
+        max-height: 240px;
+      }
+
+      .contact-item {
+        font-size: 1rem;
+      }
+
+      .contact-icon {
+        width: 26px;
+        height: 26px;
+      }
+
+      .interactive-hint {
+        font-size: 0.75rem;
+        padding: 0.35rem 0.7rem;
+      }
+
+      .creativas-modal-view, .ucic-modal-view {
+        padding: 1.8rem 1rem;
+        border-radius: 20px;
+      }
+
+      .porta-text, .folio-text {
+        font-size: 3.2rem;
+      }
+
+      .creativas-folder-box {
+        width: 190px;
+        height: 140px;
+      }
+
+      .creativas-folder-label {
+        font-size: 1.3rem;
+      }
+
+      .ucic-folder-label {
+        font-size: 1.8rem;
+      }
+
+      .creativas-gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 0. BANNER MARQUESINA ANIMADO -->
+  <div class="ticker-banner">
+    <div class="ticker-track">
+      <div class="ticker-group">
+        <div class="ticker-item"><span class="ticker-star">★</span> Ingrid Padilla</div>
+        <div class="ticker-item"><span class="ticker-star">★</span> Ingrid Padilla</div>
+        <div class="ticker-item"><span class="ticker-star">★</span> Ingrid Padilla</div>
+        <div class="ticker-item"><span class="ticker-star">★</span> Ingrid Padilla</div>
+        <div class="ticker-item"><span class="ticker-star">★</span> Ingrid Padilla</div>
+        <div class="ticker-item"><span class="ticker-star">★</span> Ingrid Padilla</div>
+      </div>
+      <div class="ticker-group" aria-hidden="true">
+        <div class="ticker-item"><span class="ticker-star">★</span> Ingrid Padilla</div>
+        <div class="ticker-item"><span class="ticker-star">★</span> Ingrid Padilla</div>
+        <div class="ticker-item"><span class="ticker-star">★</span> Ingrid Padilla</div>
+        <div class="ticker-item"><span class="ticker-star">★</span> Ingrid Padilla</div>
+        <div class="ticker-item"><span class="ticker-star">★</span> Ingrid Padilla</div>
+        <div class="ticker-item"><span class="ticker-star">★</span> Ingrid Padilla</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 1. SECCIÓN PORTADA -->
+  <section class="hero-section" id="portada">
+    <img src="portada (2).jpeg" alt="Portada Ingrid Padilla" class="hero-img">
+  </section>
+
+  <!-- 2. SECCIÓN SOBRE MÍ -->
+  <section class="about-section" id="sobre-mi">
+    <div class="about-container">
+      <div class="photo-container" id="photoTrigger">
+        <div class="photo-wrapper">
+          <!-- FLECHITA DE INSTRUCCIÓN INTERACTIVA -->
+          <div class="interactive-hint photo-hint">✦ Toca para ver software ↙</div>
+
+          <!-- ESPACIO 1: LOGO OFICIAL AFFINITY -->
+          <div class="software-icon icon-affinity">
+            <!-- AGREGA AQUÍ TU LOGO DE AFFINITY: -->
+            <!-- <img src="affinity.png" alt="Logo Affinity"> -->
+          </div>
+
+          <!-- ESPACIO 2: LOGO OFICIAL CANVA -->
+          <div class="software-icon icon-canva">
+            <!-- AGREGA AQUÍ TU LOGO DE CANVA: -->
+            <!-- <img src="canva.png" alt="Logo Canva"> -->
+          </div>
+
+          <!-- ESPACIO 3: LOGO OFICIAL PHOTOSHOP -->
+          <div class="software-icon icon-photoshop">
+            <!-- AGREGA AQUÍ TU LOGO DE PHOTOSHOP: -->
+            <!-- <img src="photoshop.png" alt="Logo Photoshop"> -->
+          </div>
+
+          <img 
+            src="foto.png" 
+            alt="Ingrid Padilla" 
+            class="profile-img"
+            onerror="this.style.display='none'; document.getElementById('placeholderFoto').style.display='flex';"
+          >
+          
+          <div class="photo-placeholder" id="placeholderFoto">
+            Tu foto (foto.png) se mostrará aquí
+          </div>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <h1>sobre mi</h1>
+
+        <div class="bio-text">
+          <p>
+            Soy de las personas que encuentran historias en casi cualquier cosa. Me gusta leer, escribir, tomar fotografías, hacer preguntas y guardar pequeños recuerdos de los lugares y momentos que me atraviesan.
+          </p>
+          <p>
+            Me fascinan las ideas, los detalles y crear cosas desde cero. Disfruto experimentar, llenar libretas de anotaciones y convertir ocurrencias que empiezan en mi cabeza en proyectos que puedo tocar, ver y compartir.
+          </p>
+        </div>
+
+        <div class="details-grid">
+          <div class="subcard">
+            <h2 class="subcard-title">estudios</h2>
+            <p class="studies-dates">2023 — Actualidad</p>
+            <p class="studies-degree">Publicidad y Diseño Digital</p>
+            <p class="studies-school">Universidad UCIC.</p>
+          </div>
+
+          <div class="subcard">
+            <h2 class="subcard-title">mi enfoque</h2>
+            <ul class="focus-list">
+              <li>Diseño gráfico.</li>
+              <li>Identidad visual.</li>
+              <li>Contenido para redes sociales.</li>
+              <li>Comunicación publicitaria.</li>
+              <li>Diseño web.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. SECCIÓN FRASE E INSPIRACIÓN (CON LUPA TÁCTIL MÓVIL) -->
+  <section class="quote-section" id="inspiracion">
+    <div class="quote-container">
+      <div class="quote-card">
+        <h2 class="quote-text">
+          “Me gusta explorar, experimentar y encontrar inspiración en cualquier parte.”
+        </h2>
+      </div>
+
+      <div class="bag-interactive-container">
+        <div class="bag-wrapper" id="bagWrapper">
+          <div class="interactive-hint bag-hint">🔍 Desliza tu dedo o cursor ↘</div>
+
+          <img 
+            src="bolsa.png" 
+            alt="Bolsa de inspiración Ingrid Padilla" 
+            class="bag-img"
+            id="bagImg"
+            onerror="this.style.display='none'; document.getElementById('placeholderBolsa').style.display='flex';"
+          >
+
+          <div class="lens-scope" id="lensScope"></div>
+
+          <div class="bag-placeholder" id="placeholderBolsa">
+            Tu foto de la bolsa (bolsa.png) se mostrará aquí
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. SECCIÓN CARPETAS PROYECTOS -->
+  <section class="folders-section" id="proyectos">
+    <div class="interactive-hint folder-hint">📁 Toca una carpeta para explorar ↴</div>
+
+    <div class="folders-container">
+      
+      <!-- Carpeta 1: UCIC -->
+      <div class="folder-card" onclick="openUcicModal()">
+        <div class="folder-icon">
+          <svg class="folder-svg" viewBox="0 0 240 180">
+            <path d="M 15,30 L 75,30 C 85,30 90,15 105,15 L 225,15 C 233,15 240,22 240,30 L 240,165 C 240,173 233,180 225,180 L 15,180 C 7,180 0,173 0,165 L 0,45 C 0,37 7,30 15,30 Z" fill="#E83E8C"/>
+            <path class="folder-lid" d="M 0,55 L 240,55 L 240,165 C 240,173 233,180 225,180 L 15,180 C 7,180 0,173 0,165 Z" fill="#FF65A3"/>
+            <path d="M 12,62 L 228,62" stroke="rgba(255,255,255,0.4)" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="folder-label">UCIC</span>
+      </div>
+
+      <!-- Carpeta 2: Creativas/ADD -->
+      <div class="folder-card" onclick="openCreativasModal()">
+        <div class="folder-icon">
+          <svg class="folder-svg" viewBox="0 0 240 180">
+            <path d="M 15,30 L 75,30 C 85,30 90,15 105,15 L 225,15 C 233,15 240,22 240,30 L 240,165 C 240,173 233,180 225,180 L 15,180 C 7,180 0,173 0,165 L 0,45 C 0,37 7,30 15,30 Z" fill="#E83E8C"/>
+            <path class="folder-lid" d="M 0,55 L 240,55 L 240,165 C 240,173 233,180 225,180 L 15,180 C 7,180 0,173 0,165 Z" fill="#FF65A3"/>
+            <path d="M 12,62 L 228,62" stroke="rgba(255,255,255,0.4)" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="folder-label">Creativas/ADD</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 5. BANNER CON TELÉFONO DESTACADO -->
+  <section class="work-banner-section" id="contacto">
+    <div class="work-banner-container">
+      
+      <div class="work-banner-left">
+        <svg class="star-outline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+        </svg>
+
+        <h2 class="work-banner-title">
+          Elige cómo quieres<br>
+          que trabajemos<br>
+          juntos
+        </h2>
+      </div>
+
+      <div class="work-banner-right">
+        <div class="phone-wrapper">
+          <span class="phone-starburst">✦</span>
+
+          <img 
+            src="telefono.png" 
+            alt="Teléfono Nokia Ingrid Padilla" 
+            class="phone-img"
+            onerror="this.style.display='none'; document.getElementById('placeholderTelefono').style.display='flex';"
+          >
+          
+          <div class="phone-placeholder" id="placeholderTelefono">
+            Tu foto del teléfono (telefono.png) se mostrará aquí
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 6. BANNER DE CONTACTO INFERIOR -->
+  <div class="contact-bar">
+    <a href="https://wa.me/522431083979" target="_blank" class="contact-item">
+      <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+        <path d="M16 11.5c0 1.5-2.5 3-4.5 3s-3.5-1.5-3.5-3"></path>
+      </svg>
+      <span>243 108 3979</span>
+    </a>
+
+    <a href="mailto:padillaingrid335@gmail.com" class="contact-item">
+      <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+        <path d="M22 6l-10 7L2 6"></path>
+      </svg>
+      <span>padillaingrid335@gmail.com</span>
+    </a>
+  </div>
+
+  <div class="bottom-stripe"></div>
+
+  <!-- 7. MODAL GALERÍA "CREATIVAS / ADD" -->
+  <div class="creativas-modal-overlay" id="creativasModal" onclick="closeCreativasModalOnOverlay(event)">
+    <div class="creativas-modal-view">
+      <button class="close-btn" onclick="closeCreativasModal()">✕</button>
+      
+      <div class="creativas-layout">
+        <div class="creativas-left">
+          <span class="porta-text">Porta</span>
+          
+          <div class="creativas-folder-wrapper">
+            <div class="creativas-folder-box">
+              <svg viewBox="0 0 240 185" style="width:100%; height:100%;">
+                <path d="M 15,30 L 75,30 C 85,30 90,15 105,15 L 225,15 C 233,15 240,22 240,30 L 240,165 C 240,173 233,180 225,180 L 15,180 C 7,180 0,173 0,165 L 0,45 C 0,37 7,30 15,30 Z" fill="#E83E8C"/>
+                <path d="M 0,55 L 240,55 L 240,165 C 240,173 233,180 225,180 L 15,180 C 7,180 0,173 0,165 Z" fill="#FF65A3"/>
+              </svg>
+              <div class="creativas-folder-label">Creativas/<br>ADD</div>
+            </div>
+
+            <svg class="creativas-pointer-cursor" viewBox="0 0 24 24" shape-rendering="crispEdges">
+              <path fill="#000000" d="M0,0 L0,18 L4,14 L7,20 L10,19 L7,13 L13,13 Z"/>
+              <path fill="#FFFFFF" d="M1,2 L1,15 L4,12 L7,18 L8,17.5 L5,11.5 L11,11.5 Z"/>
+            </svg>
+          </div>
+
+          <span class="folio-text">folio</span>
+        </div>
+
+        <div class="creativas-gallery-grid">
+          <div class="gallery-card">
+            <img src="Imagen 1.jpeg" alt="Proyecto Creativas 1">
+          </div>
+          <div class="gallery-card">
+            <img src="Imagen 2.jpeg" alt="Proyecto Creativas 2">
+          </div>
+          <div class="gallery-card">
+            <img src="Imagen 3.jpeg" alt="Proyecto Creativas 3">
+          </div>
+          <div class="gallery-card">
+            <img src="Imagen 4.jpeg" alt="Proyecto Creativas 4">
+          </div>
+          <div class="gallery-card">
+            <img src="Imagen 5.jpeg" alt="Proyecto Creativas 5">
+          </div>
+          <div class="gallery-card">
+            <img src="Imagen 6.jpeg" alt="Proyecto Creativas 6">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 8. MODAL GALERÍA "UCIC" -->
+  <div class="ucic-modal-overlay" id="ucicModal" onclick="closeUcicModalOnOverlay(event)">
+    <div class="ucic-modal-view">
+      <button class="close-btn" onclick="closeUcicModal()">✕</button>
+      
+      <div class="creativas-layout">
+        <div class="creativas-left">
+          <span class="porta-text">Porta</span>
+          
+          <div class="creativas-folder-wrapper">
+            <div class="creativas-folder-box">
+              <svg viewBox="0 0 240 185" style="width:100%; height:100%;">
+                <path d="M 15,30 L 75,30 C 85,30 90,15 105,15 L 225,15 C 233,15 240,22 240,30 L 240,165 C 240,173 233,180 225,180 L 15,180 C 7,180 0,173 0,165 Z" fill="#E83E8C"/>
+                <path d="M 0,55 L 240,55 L 240,165 C 240,173 233,180 225,180 L 15,180 C 7,180 0,173 0,165 Z" fill="#FF65A3"/>
+              </svg>
+              <div class="ucic-folder-label">UCIC</div>
+            </div>
+
+            <svg class="creativas-pointer-cursor" viewBox="0 0 24 24" shape-rendering="crispEdges">
+              <path fill="#000000" d="M0,0 L0,18 L4,14 L7,20 L10,19 L7,13 L13,13 Z"/>
+              <path fill="#FFFFFF" d="M1,2 L1,15 L4,12 L7,18 L8,17.5 L5,11.5 L11,11.5 Z"/>
+            </svg>
+          </div>
+
+          <span class="folio-text">folio</span>
+        </div>
+
+        <div class="creativas-gallery-grid">
+          <div class="gallery-card">
+            <img src="Imagen 7.jpeg" alt="Proyecto UCIC 7">
+          </div>
+          <div class="gallery-card">
+            <img src="Imagen 8.jpeg" alt="Proyecto UCIC 8">
+          </div>
+          <div class="gallery-card">
+            <img src="Imagen 9.jpeg" alt="Proyecto UCIC 9">
+          </div>
+          <div class="gallery-card">
+            <img src="Imagen 10.jpeg" alt="Proyecto UCIC 10">
+          </div>
+          <div class="gallery-card">
+            <img src="Imagen 13.jpeg" alt="Proyecto UCIC 13">
+          </div>
+          <div class="gallery-card">
+            <img src="Imagen 12.jpeg" alt="Proyecto UCIC 12">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT CON SOPORTE TÁCTIL COMPLETO -->
+  <script>
+    // 1. Interacción foto sobre mí
+    const photoTrigger = document.getElementById('photoTrigger');
+    if (photoTrigger) {
+      photoTrigger.addEventListener('click', () => {
+        photoTrigger.classList.toggle('active');
+      });
+    }
+
+    // 2. Movimiento de la Lente Lupa (Mouse + Pantalla Táctil)
+    const bagWrapper = document.getElementById('bagWrapper');
+    const bagImg = document.getElementById('bagImg');
+    const lensScope = document.getElementById('lensScope');
+
+    if (bagWrapper && bagImg && lensScope) {
+      const zoomLevel = 2.2;
+
+      function updateLensPosition(clientX, clientY) {
+        const rect = bagWrapper.getBoundingClientRect();
+        const x = clientX - rect.left;
+        const y = clientY - rect.top;
+
+        lensScope.style.left = `${x}px`;
+        lensScope.style.top = `${y}px`;
+        lensScope.style.opacity = '1';
+
+        lensScope.style.backgroundImage = `url('${bagImg.src}')`;
+        lensScope.style.backgroundSize = `${rect.width * zoomLevel}px ${rect.height * zoomLevel}px`;
+        lensScope.style.backgroundPosition = `-${x * zoomLevel - lensScope.offsetWidth / 2}px -${y * zoomLevel - lensScope.offsetHeight / 2}px`;
+      }
+
+      bagWrapper.addEventListener('mousemove', (e) => {
+        updateLensPosition(e.clientX, e.clientY);
+      });
+
+      bagWrapper.addEventListener('mouseleave', () => {
+        lensScope.style.opacity = '0';
+      });
+
+      bagWrapper.addEventListener('touchstart', (e) => {
+        if (e.touches.length > 0) {
+          updateLensPosition(e.touches[0].clientX, e.touches[0].clientY);
+        }
+      }, { passive: true });
+
+      bagWrapper.addEventListener('touchmove', (e) => {
+        if (e.touches.length > 0) {
+          e.preventDefault();
+          updateLensPosition(e.touches[0].clientX, e.touches[0].clientY);
+        }
+      }, { passive: false });
+
+      bagWrapper.addEventListener('touchend', () => {
+        lensScope.style.opacity = '0';
+      });
+
+      bagWrapper.addEventListener('touchcancel', () => {
+        lensScope.style.opacity = '0';
+      });
+    }
+
+    // 3. Modales Galería
+    function openCreativasModal() {
+      const modal = document.getElementById('creativasModal');
+      if (modal) {
+        modal.classList.add('active');
+        document.body.classList.add('modal-open');
+      }
+    }
+
+    function closeCreativasModal() {
+      const modal = document.getElementById('creativasModal');
+      if (modal) {
+        modal.classList.remove('active');
+        document.body.classList.remove('modal-open');
+      }
+    }
+
+    function closeCreativasModalOnOverlay(e) {
+      if (e.target.id === 'creativasModal') closeCreativasModal();
+    }
+
+    function openUcicModal() {
+      const modal = document.getElementById('ucicModal');
+      if (modal) {
+        modal.classList.add('active');
+        document.body.classList.add('modal-open');
+      }
+    }
+
+    function closeUcicModal() {
+      const modal = document.getElementById('ucicModal');
+      if (modal) {
+        modal.classList.remove('active');
+        document.body.classList.remove('modal-open');
+      }
+    }
+
+    function closeUcicModalOnOverlay(e) {
+      if (e.target.id === 'ucicModal') closeUcicModal();
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeCreativasModal();
+        closeUcicModal();
+      }
+    });
+  </script>
+</body>
+</html>
